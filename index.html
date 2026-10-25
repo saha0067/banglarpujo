@@ -25,7 +25,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .nav{display:flex;gap:6px;overflow-x:auto;padding:6px 16px 10px;scrollbar-width:none}
 .nav button{flex:none;background:transparent;color:var(--dim);border:0;border-radius:999px;padding:7px 16px;font:600 .98rem "Anek Bangla",sans-serif;cursor:pointer;white-space:nowrap}
 .nav button.on{background:var(--gold);color:#2a1a00}
-.nav .cta{margin-left:auto;background:var(--red);color:#fff}
+.nav .cta{background:var(--red);color:#fff}.upnote{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;width:calc(100% - 32px);max-width:1068px;margin:12px auto 0;padding:12px 16px;border:1px dashed var(--gold);border-radius:14px;background:rgba(245,166,35,.1)}.upnote p{margin:0;flex:1 1 220px}.upnote b{color:var(--gold)}.vs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:8px 0}.vs div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.vs b{display:block;font-size:1.4rem;color:var(--gold)}
 .par{height:12px;background:repeating-linear-gradient(90deg,var(--red) 0 22px,#f3eee4 22px 26px,var(--red) 26px 48px,var(--gold) 48px 52px)}
 .view{display:none}.view.on{display:block}
 .hero{padding:10px 20px 44px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 0,rgba(245,166,35,.28),transparent 70%),radial-gradient(circle at 15% 85%,rgba(224,52,43,.18),transparent 40%)}
@@ -104,10 +104,10 @@ dialog{max-height:92vh;overflow:auto}
 </head>
 <body class="out">
 <div class="top"><header class="bar"><a class="logo" href="#"><img data-logo alt="" class="lg"><span id="sn">বাংলার পুজো</span></a><div class="acts"><button class="btn ghost sm" id="adm" hidden>অ্যাডমিন</button><button class="btn ghost sm" id="auth"></button></div></header>
-<nav class="nav" id="nav"><button data-v="home" class="on">🏠 হোম</button><button data-v="pujo">🪔 পুজো</button><button data-v="loc">📍 এলাকা</button><button data-v="me">👤 প্রোফাইল</button><button id="up" class="cta">➕ আপলোড</button></nav></div>
+<nav class="nav" id="nav"><button id="up" class="cta">➕ আপলোড</button><button data-v="home" class="on">🏠 হোম</button><button data-v="pujo">🪔 পুজো</button><button data-v="loc">📍 এলাকা</button><button data-v="me">👤 প্রোফাইল</button></nav></div>
 <div class="par"></div>
 <main>
-<section class="view on" id="v_home"><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button><button class="btn ghost" onclick="show('loc')">📍 এলাকা অনুযায়ী</button></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
+<section class="view on" id="v_home"><div class="upnote"><p>📸 <b>পুজোর ছবি বা ভিডিও আছে?</b> যে কেউ আপলোড করতে পারেন। অ্যাডমিন দেখে অনুমতি দিলে সবার সামনে আসবে।</p><button class="btn" id="up2">➕ আপলোড করুন</button></div><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button><button class="btn ghost" onclick="show('loc')">📍 এলাকা অনুযায়ী</button></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
 <div class="wrap"><h2>পুজো বেছে নিন</h2><div class="pc" id="pc"></div><h2>সাম্প্রতিক ছবি ও ভিডিও</h2><div class="grid" id="hgrid"></div></div></section>
 <section class="view" id="v_pujo"><div class="wrap"><h2>বছর বেছে নিন</h2><div class="row" id="years"></div><h2 id="ttl"></h2><div class="row p" id="pujas"></div><div class="grid" id="grid"></div></div></section>
 <section class="view" id="v_loc"><div class="wrap"><h2>বিভাগ বেছে নিন</h2><div class="pc" id="ldiv"></div><div id="lsub" hidden><h2 id="lt"></h2><div class="row p" id="ldist"></div></div><div class="grid" id="lgrid"></div></div></section>
@@ -220,11 +220,11 @@ async function onUser(u){
     await sb.from("profiles").upsert({id:u.id,email:u.email,name:md.full_name||md.name||null,avatar:md.avatar_url||md.picture||null,last_login:new Date().toISOString()});
     var a=await sb.from("admins").select("user_id").eq("user_id",u.id).maybeSingle();isAdmin=!!a.data}
   $("adm").hidden=!isAdmin}
-var tab="pend",TABS={pend:"অপেক্ষমাণ",all:"সব পোস্ট",users:"ইউজার",set:"সেটিংস"};
+var tab="pend",TABS={pend:"অপেক্ষমাণ",all:"সব পোস্ট",users:"ইউজার",vis:"ভিজিটর",set:"সেটিংস"};
 function atab(t){tab=t;var r=$("at");r.innerHTML="";
   Object.keys(TABS).forEach(function(k){var b=document.createElement("button");b.textContent=TABS[k];if(k==t)b.className="on";b.onclick=function(){atab(k)};r.appendChild(b)});
   var c=$("ab");c.textContent="লোড হচ্ছে...";
-  if(t=="users")users(c);else if(t=="set")settings(c);else plist(c,t=="pend")}
+  if(t=="users")users(c);else if(t=="vis")visitors(c);else if(t=="set")settings(c);else plist(c,t=="pend")}
 function mk(t,c,fn){var b=document.createElement("button");b.type="button";b.textContent=t;b.className="btn sm "+c;b.onclick=fn;return b}
 async function plist(c,pend){
   var q=sb.from("posts").select("*").order("created_at",{ascending:false}).limit(100);
@@ -273,6 +273,17 @@ $("adm").onclick=function(){$("adp").showModal();atab("pend")};
 $("ax").onclick=function(){$("adp").close()};
 var DIV=[["ঢাকা","ঢাকা,গাজীপুর,নারায়ণগঞ্জ,নরসিংদী,মানিকগঞ্জ,মুন্সিগঞ্জ,কিশোরগঞ্জ,টাঙ্গাইল,ফরিদপুর,মাদারীপুর,শরীয়তপুর,রাজবাড়ী,গোপালগঞ্জ"],["চট্টগ্রাম","চট্টগ্রাম,কক্সবাজার,কুমিল্লা,ফেনী,ব্রাহ্মণবাড়িয়া,নোয়াখালী,চাঁদপুর,লক্ষ্মীপুর,খাগড়াছড়ি,রাঙ্গামাটি,বান্দরবান"],["রাজশাহী","রাজশাহী,বগুড়া,জয়পুরহাট,নওগাঁ,নাটোর,চাঁপাইনবাবগঞ্জ,পাবনা,সিরাজগঞ্জ"],["খুলনা","খুলনা,বাগেরহাট,সাতক্ষীরা,যশোর,নড়াইল,মাগুরা,ঝিনাইদহ,কুষ্টিয়া,চুয়াডাঙ্গা,মেহেরপুর"],["বরিশাল","বরিশাল,বরগুনা,ভোলা,ঝালকাঠি,পটুয়াখালী,পিরোজপুর"],["সিলেট","সিলেট,মৌলভীবাজার,হবিগঞ্জ,সুনামগঞ্জ"],["রংপুর","রংপুর,দিনাজপুর,গাইবান্ধা,কুড়িগ্রাম,লালমনিরহাট,নীলফামারী,পঞ্চগড়,ঠাকুরগাঁও"],["ময়মনসিংহ","ময়মনসিংহ,জামালপুর,শেরপুর,নেত্রকোণা"]];
 var dv=0;
+async function visitors(c){
+  var since=new Date(Date.now()-30*864e5).toISOString();
+  var r=await sb.from("visits").select("*").gte("created_at",since).order("created_at",{ascending:false}).limit(5000);
+  if(r.error){c.textContent=r.error.message;return}
+  var d=r.data,day=function(t){return new Date(t).toLocaleDateString("en-CA")},today=day(Date.now());
+  var all={},anon={},td={},tv=0,dev={},ref={},days={};
+  d.forEach(function(v){all[v.visitor_id]=1;if(!v.user_id)anon[v.visitor_id]=1;var k=day(v.created_at);(days[k]=days[k]||{})[v.visitor_id]=1;days[k].n=(days[k].n||0)+1;if(k==today){td[v.visitor_id]=1;tv++}dev[v.device||"?"]=(dev[v.device||"?"]||0)+1;var h="সরাসরি";try{if(v.referrer)h=new URL(v.referrer).hostname}catch(e){}ref[h]=(ref[h]||0)+1});
+  var n=function(o){return Object.keys(o).filter(function(k){return k!="n"}).length};
+  var top=function(o){return Object.keys(o).sort(function(a,b){return o[b]-o[a]}).slice(0,5).map(function(k){return esc(k)+" ("+o[k]+")"}).join(", ")||"-"};
+  c.innerHTML='<p class="empty">গত ৩০ দিনের হিসাব। নাম বা ইমেইল শুধু Google লগইনকারীদের পাওয়া যায়; বাকিরা বেনামী ভিজিটর।</p><div class="vs"><div><b>'+tv+'</b>আজকের ভিজিট</div><div><b>'+n(td)+'</b>আজ আলাদা ভিজিটর</div><div><b>'+d.length+'</b>মোট ভিজিট</div><div><b>'+n(all)+'</b>মোট আলাদা ভিজিটর</div><div><b>'+n(anon)+'</b>লগইন ছাড়া ভিজিটর</div></div><p><b>ডিভাইস:</b> '+top(dev)+'</p><p><b>কোথা থেকে এসেছে:</b> '+top(ref)+'</p><h3>দিনভিত্তিক</h3>'+Object.keys(days).sort().reverse().slice(0,14).map(function(k){return"<p>"+k+": "+days[k].n+" ভিজিট, "+n(days[k])+" জন</p>"}).join("");
+}
 function show(v){if(v=="me"&&!user){$("login").showModal();return}[].forEach.call(document.querySelectorAll(".view"),function(e){e.classList.toggle("on",e.id=="v_"+v)});[].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.classList.toggle("on",b.dataset.v==v)});scrollTo(0,0);if(v=="me")loadMe()}
 [].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.onclick=function(){show(b.dataset.v)}});
 function pcards(){var c=$("pc");c.innerHTML="";PUJAS.forEach(function(p){var b=document.createElement("button");b.textContent=p;b.onclick=function(){puja=p;tabs();load();show("pujo")};c.appendChild(b)})}
@@ -311,6 +322,10 @@ async function delMine(p){
   loadMe();loadHome()}
 document.addEventListener("click",function(e){var t=e.target;if(t.tagName=="IMG"&&t.closest(".card")){$("lbi").src=t.src;$("lb").showModal()}});
 $("lb").onclick=function(){this.close()};
+(function(){var v=null,k="bp_vid";try{v=localStorage.getItem(k);if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Math.random()).slice(2)+Date.now();localStorage.setItem(k,v)}}catch(e){v=v||"na"}
+try{if(sessionStorage.getItem("bp_v"))return;sessionStorage.setItem("bp_v","1")}catch(e){}
+var ua=navigator.userAgent;sb.from("visits").insert({visitor_id:v,referrer:document.referrer||null,device:/Mobi|Android|iPhone/i.test(ua)?"মোবাইল":"কম্পিউটার",ua:ua.slice(0,300),lang:navigator.language,screen:screen.width+"x"+screen.height}).then(function(){})})();
+$("up2").onclick=function(){$("up").click()};
 fillDist();ldivs();tabs();loadSettings();
 </script>
 </body>
