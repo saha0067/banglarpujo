@@ -317,9 +317,9 @@ async function visitors(c){
   c.innerHTML='<p class="empty">গত ৩০ দিনের হিসাব। নাম বা ইমেইল শুধু Google লগইনকারীদের পাওয়া যায়; বাকিরা বেনামী ভিজিটর।</p><div class="vs"><div><b>'+tv+'</b>আজকের ভিজিট</div><div><b>'+n(td)+'</b>আজ আলাদা ভিজিটর</div><div><b>'+d.length+'</b>মোট ভিজিট</div><div><b>'+n(all)+'</b>মোট আলাদা ভিজিটর</div><div><b>'+n(anon)+'</b>লগইন ছাড়া ভিজিটর</div></div><p><b>ডিভাইস:</b> '+top(dev)+'</p><p><b>কোথা থেকে এসেছে:</b> '+top(ref)+'</p><h3>দিনভিত্তিক</h3>'+Object.keys(days).sort().reverse().slice(0,14).map(function(k){return"<p>"+k+": "+days[k].n+" ভিজিট, "+n(days[k])+" জন</p>"}).join("");
 }
 function paintSaves(){[].forEach.call(document.querySelectorAll(".sv"),function(b){var on=saved[b.dataset.id];b.textContent=on?"🔖 সেভ করা":"🔖 সেভ";b.classList.toggle("on",!!on)})}
-async function shareP(p){var u=location.origin+location.pathname+"?post="+p.id,t="বাংলার পুজো: "+p.puja+(p.district?", "+p.district:"");
+async function shareP(p){var u=p.slug?location.origin+"/p/"+p.slug:location.origin+location.pathname+"?post="+p.id,t="🪔 "+p.puja+" "+p.year+(p.district?" · "+p.district:"")+" | বাংলার পুজো";
   if(navigator.share){try{await navigator.share({title:t,text:t,url:u});return}catch(e){if(e&&e.name=="AbortError")return}}
-  var e=encodeURIComponent;$("sw").href="https://wa.me/?text="+e(t+" "+u);$("sf").href="https://www.facebook.com/sharer/sharer.php?u="+e(u);$("sc").textContent="লিংক কপি";
+  var e=encodeURIComponent;$("sw").href="https://wa.me/?text="+e(t+"\n"+u);$("sf").href="https://www.facebook.com/sharer/sharer.php?u="+e(u);$("sc").textContent="লিংক কপি";
   $("sc").onclick=function(){try{navigator.clipboard.writeText(u);$("sc").textContent="কপি হয়েছে ✓"}catch(x){prompt("লিংক কপি করুন",u)}};$("shd").showModal()}
 function openPost(p){mineFor([p]).then(function(){$("pvb").innerHTML="";$("pvb").appendChild(card(p));$("pv").showModal()})}
 var vp=null;
@@ -346,7 +346,10 @@ async function reports(c){var r=await sb.from("reports").select("*, posts(*)").e
     a.appendChild(mk("পোস্ট লুকান","danger sm",async function(){await sb.from("posts").update({approved:false}).eq("id",p.id);await sb.from("reports").update({status:"done"}).eq("id",x.id);atab("rep")}));
     a.appendChild(mk("বাদ দিন","ghost sm",async function(){await sb.from("reports").update({status:"done"}).eq("id",x.id);atab("rep")}));
     d.querySelector(".i").appendChild(a);c.appendChild(d)})}
-(function(){var id=new URLSearchParams(location.search).get("post");if(id)sb.from("posts").select("*, reactions(count)").eq("id",id).eq("approved",true).maybeSingle().then(function(r){if(r.data)openPost(r.data)})})();
+(function(){var q=new URLSearchParams(location.search),sl=q.get("p"),id=q.get("post");if(!sl&&!id)return;
+  var b=sb.from("posts").select("*, reactions(count)").eq("approved",true);b=sl?b.eq("slug",sl):b.eq("id",id);
+  b.maybeSingle().then(function(r){if(r.data){openPost(r.data);if(r.data.slug)history.replaceState(null,"","/p/"+r.data.slug)}else history.replaceState(null,"","/")})})();
+$("pv").addEventListener("close",function(){if(location.pathname.indexOf("/p/")==0)history.replaceState(null,"","/")});
 function show(v){if(v=="me"&&!user){$("login").showModal();return}[].forEach.call(document.querySelectorAll(".view"),function(e){e.classList.toggle("on",e.id=="v_"+v)});[].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.classList.toggle("on",b.dataset.v==v)});scrollTo(0,0);if(v=="me")loadMe()}
 [].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.onclick=function(){show(b.dataset.v)}});
 function pcards(){var c=$("pc");c.innerHTML="";PUJAS.forEach(function(p){var b=document.createElement("button");b.textContent=p;b.onclick=function(){puja=p;tabs();load();show("pujo")};c.appendChild(b)})}
