@@ -125,7 +125,7 @@ dialog{max-height:92vh;overflow:auto}
 <form id="uf">
 <label>পুজোর নাম *<select name="puja" id="fp" required></select></label>
 <label>সাল *<select name="year" id="fy" required></select></label>
-<label>প্রতিমাশিল্পীর নাম *<input name="artist" maxlength="80" required placeholder="জানা না থাকলে Unknown লিখুন"></label><label>জেলা *<select name="district" id="fd" required></select></label><label>পুজামণ্ডপের লোকেশন *<input name="location" maxlength="120" required placeholder="যেমন: কলেজ রোড, শেরপুর সদর"></label>
+<label>প্রতিমাশিল্পীর নাম *<input name="artist" maxlength="80" required placeholder="জানা না থাকলে Unknown লিখুন"></label><label>জেলা *<select name="district" id="fd" required></select></label><label>পুজামণ্ডপের লোকেশন *<input name="location" maxlength="120" required placeholder="যেমন: কলেজ রোড, শেরপুর সদর"></label><label>আয়োজনে *<input name="organizer" maxlength="100" required placeholder="ক্লাব / কমিটির নাম, যেমন: তরুণ সংঘ"></label>
 <label>ক্যাপশন<textarea name="caption" rows="3" maxlength="500" placeholder="এই পুজো সম্পর্কে দু-চার কথা"></textarea></label>
 <label>ছবি বা ভিডিও * (যত খুশি, সব একটি পোস্টে থাকবে, প্রতিটি সর্বোচ্চ ৫০ MB)<input type="file" name="file" accept="image/*,video/*" multiple required></label>
 <small class="empty">* চিহ্নিত ঘর পূরণ করা বাধ্যতামূলক</small><p class="err" id="ue"></p>
@@ -164,7 +164,7 @@ function card(p){
   var items=p.media&&p.media.length?p.media:[{url:p.media_url,type:p.media_type}];
   function el(m){return m.type=="video"?'<video src="'+esc(m.url)+'" controls preload="metadata" playsinline></video>':'<img src="'+esc(m.url)+'" alt="'+esc(p.puja)+'" loading="lazy">'}
   var media=items.length==1?el(items[0]):'<div class="mw"><div class="sl">'+items.map(function(m){return'<div class="sd">'+el(m)+'</div>'}).join("")+'</div><span class="ct">1/'+items.length+'</span></div>';
-  c.innerHTML=media+'<div class="b"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+(p.district?'<span class="loc">'+esc(p.district)+'</span>':'')+(p.location?'<div class="dt">📍 '+esc(p.location)+'</div>':'')+(p.artist?'<div class="dt">🎨 প্রতিমাশিল্পী: '+esc(p.artist)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+'<div class="meta"><span class="vw"></span><span class="rc"></span></div><div class="re"></div></div>';
+  c.innerHTML=media+'<div class="b"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+(p.district?'<span class="loc">'+esc(p.district)+'</span>':'')+(p.location?'<div class="dt">📍 '+esc(p.location)+'</div>':'')+(p.artist?'<div class="dt">🎨 প্রতিমাশিল্পী: '+esc(p.artist)+'</div>':'')+(p.organizer?'<div class="dt">🏛️ আয়োজনে: '+esc(p.organizer)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+'<div class="meta"><span class="vw"></span><span class="rc"></span></div><div class="re"></div></div>';
   var vw=c.querySelector(".vw"),rc=c.querySelector(".rc"),re=c.querySelector(".re");
   var sl=c.querySelector(".sl");if(sl){var ct=c.querySelector(".ct");sl.onscroll=function(){ct.textContent=(Math.round(sl.scrollLeft/sl.clientWidth)+1)+"/"+items.length}}
   function paint(){vw.textContent=views+" জন দেখেছেন";rc.textContent=count+" রিঅ্যাকশন";[].forEach.call(re.children,function(b){b.className=mine[p.id]==b.textContent?"on":""})}
@@ -197,7 +197,7 @@ $("uf").onsubmit=async function(ev){
     if(up.error){msg+=file.name+" (আপলোড হয়নি): "+up.error.message+" ";continue}
     paths.push(path);media.push({url:sb.storage.from("media").getPublicUrl(path).data.publicUrl,type:file.type.indexOf("video")==0?"video":"image"})}
   if(media.length){
-    var ins=await sb.from("posts").insert({user_id:user.id,approved:isAdmin,puja:f.get("puja"),year:+f.get("year"),district:f.get("district"),artist:(f.get("artist")||"").trim()||"Unknown",location:(f.get("location")||"").trim(),caption:f.get("caption")||null,media_url:media[0].url,media_type:media[0].type,media:media});
+    var ins=await sb.from("posts").insert({user_id:user.id,approved:isAdmin,puja:f.get("puja"),year:+f.get("year"),district:f.get("district"),artist:(f.get("artist")||"").trim()||"Unknown",location:(f.get("location")||"").trim(),organizer:(f.get("organizer")||"").trim(),caption:f.get("caption")||null,media_url:media[0].url,media_type:media[0].type,media:media});
     if(ins.error){sb.storage.from("media").remove(paths);msg+="পোস্ট সেভ হয়নি: "+ins.error.message;media=[]}}
   b.disabled=false;b.textContent="পোস্ট করুন";
   if(!media.length){$("ue").textContent=msg;return}
@@ -236,10 +236,10 @@ function arow(p){
   var d=document.createElement("div");d.className="ar";
   var m=p.media_type=="video"?'<video src="'+esc(p.media_url)+'" controls preload="metadata" playsinline></video>':'<img src="'+esc(p.media_url)+'" alt="">';
   var list=PUJAS.indexOf(p.puja)<0?PUJAS.concat([p.puja]):PUJAS;
-  d.innerHTML=m+'<div class="i"><b>'+(p.approved?"✅ প্রকাশিত":"⏳ অপেক্ষমাণ")+(p.media&&p.media.length>1?" · "+p.media.length+"টি ফাইল":"")+'</b><select>'+list.map(function(x){return"<option>"+esc(x)+"</option>"}).join("")+'</select><input type="number" placeholder="বছর"><input placeholder="জেলা / এলাকা" maxlength="60"><input placeholder="প্রতিমাশিল্পী" maxlength="80"><input placeholder="মণ্ডপের লোকেশন" maxlength="120"><textarea rows="2" maxlength="500" placeholder="ক্যাপশন"></textarea><div class="acts"></div></div>';
+  d.innerHTML=m+'<div class="i"><b>'+(p.approved?"✅ প্রকাশিত":"⏳ অপেক্ষমাণ")+(p.media&&p.media.length>1?" · "+p.media.length+"টি ফাইল":"")+'</b><select>'+list.map(function(x){return"<option>"+esc(x)+"</option>"}).join("")+'</select><input type="number" placeholder="বছর"><input placeholder="জেলা / এলাকা" maxlength="60"><input placeholder="প্রতিমাশিল্পী" maxlength="80"><input placeholder="মণ্ডপের লোকেশন" maxlength="120"><input placeholder="আয়োজনে" maxlength="100"><textarea rows="2" maxlength="500" placeholder="ক্যাপশন"></textarea><div class="acts"></div></div>';
   var s=d.querySelector("select"),y=d.querySelector("input[type=number]"),di=d.querySelectorAll("input")[1],ca=d.querySelector("textarea"),ac=d.querySelector(".acts");
-  s.value=p.puja;y.value=p.year;di.value=p.district||"";ca.value=p.caption||"";var ia=d.querySelectorAll("input")[2],il=d.querySelectorAll("input")[3];ia.value=p.artist||"";il.value=p.location||"";
-  async function go(ap){var r=await sb.from("posts").update({puja:s.value,year:+y.value,district:di.value||null,caption:ca.value||null,artist:ia.value||null,location:il.value||null,approved:ap}).eq("id",p.id);if(r.error){alert(r.error.message);return}atab(tab);reload()}
+  s.value=p.puja;y.value=p.year;di.value=p.district||"";ca.value=p.caption||"";var ia=d.querySelectorAll("input")[2],il=d.querySelectorAll("input")[3];ia.value=p.artist||"";il.value=p.location||"";var io=d.querySelectorAll("input")[4];io.value=p.organizer||"";
+  async function go(ap){var r=await sb.from("posts").update({puja:s.value,year:+y.value,district:di.value||null,caption:ca.value||null,artist:ia.value||null,location:il.value||null,organizer:io.value||null,approved:ap}).eq("id",p.id);if(r.error){alert(r.error.message);return}atab(tab);reload()}
   ac.appendChild(p.approved?mk("লুকিয়ে রাখুন","ghost",function(){go(false)}):mk("অনুমোদন দিন","",function(){go(true)}));
   ac.appendChild(mk("সেভ","ghost",function(){go(p.approved)}));
   ac.appendChild(mk("মুছুন","danger",async function(){
