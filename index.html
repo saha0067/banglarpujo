@@ -51,7 +51,11 @@ h2::before{content:"";width:6px;height:1.3em;border-radius:3px;background:repeat
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;margin-top:8px}
 .card{background:linear-gradient(180deg,#232650,#1a1c3a);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}
 .card:hover{transform:translateY(-3px);border-color:var(--gold)}
-.card img,.card video{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#000}
+.card img,.card video{width:100%;height:auto;max-height:78vh;object-fit:contain;display:block;background:#0a0b1a}
+.card video{min-height:220px}.card img{cursor:zoom-in}
+.sd img,.sd video{aspect-ratio:4/3;max-height:none}
+#lb{width:100vw;height:100vh;max-width:none;max-height:none;padding:0;border:0;border-radius:0;background:rgba(5,6,20,.96)}
+#lb img{width:100%;height:100%;object-fit:contain;touch-action:pinch-zoom}
 .b{padding:12px 14px}
 .b h3{margin:0;font-size:1.1rem}
 .loc{display:inline-block;font-size:.85rem;color:var(--gold);border:1px solid rgba(245,166,35,.4);border-radius:99px;padding:0 10px;margin:2px 0}
@@ -72,11 +76,7 @@ input,select,textarea{background:var(--night);color:var(--text);border:1px solid
 .ar{border:1px solid var(--line);border-radius:12px;padding:10px;margin:10px 0;display:flex;gap:10px;flex-wrap:wrap}
 .ar>img,.ar>video{width:110px;height:84px;object-fit:cover;border-radius:8px}
 .ar .i{flex:1;min-width:190px;display:flex;flex-direction:column;gap:4px}
-body.out #nav{display:none}
-body.out .view:not(#v_home){display:none}
-body.out #v_home{display:block}
-body.out #v_home .wrap,body.out .cta2.in{display:none}
-body:not(.out) .outb{display:none}
+.outb{display:none}
 .pf{display:flex;gap:16px;align-items:center;margin-top:20px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;flex-wrap:wrap}
 .pf img{width:84px;height:84px;border-radius:50%;border:3px solid var(--gold);object-fit:cover}
 .pf h3{margin:0;font:800 1.4rem "Noto Serif Bengali",serif;color:var(--gold)}
@@ -115,6 +115,7 @@ dialog{max-height:92vh;overflow:auto}
 </main>
 <footer>© বাংলার পুজো · মন ভরে বাংলার ঠাকুর দেখবে তুমিও</footer>
 
+<dialog id="lb"><img id="lbi" alt=""></dialog>
 <dialog id="login"><h3>লগইন করুন</h3>
 <form id="lf" method="dialog">
 <button type="button" class="gbtn" id="g"></button>
@@ -147,7 +148,7 @@ function bar(el,items,cur,fn,all){el.innerHTML="";(all?[""].concat(items):items)
 function tabs(){bar($("years"),YEARS,year,function(y){year=y;tabs();load()});bar($("pujas"),PUJAS,puja,function(p){puja=p;tabs();load()},true);$("ttl").textContent=year+" সালের পুজো";pcards()}
 function authBtn(){$("auth").textContent=user?"লগআউট":"লগইন"}
 function needLogin(){if(user)return false;$("login").showModal();return true}
-async function load(){if(!user)return;
+async function load(){
   var q=sb.from("posts").select("*, reactions(count)").eq("approved",true).eq("year",year).order("created_at",{ascending:false});
   if(puja)q=q.eq("puja",puja);
   var r=await q,posts=r.data||[];
@@ -272,7 +273,7 @@ $("adm").onclick=function(){$("adp").showModal();atab("pend")};
 $("ax").onclick=function(){$("adp").close()};
 var DIV=[["ঢাকা","ঢাকা,গাজীপুর,নারায়ণগঞ্জ,নরসিংদী,মানিকগঞ্জ,মুন্সিগঞ্জ,কিশোরগঞ্জ,টাঙ্গাইল,ফরিদপুর,মাদারীপুর,শরীয়তপুর,রাজবাড়ী,গোপালগঞ্জ"],["চট্টগ্রাম","চট্টগ্রাম,কক্সবাজার,কুমিল্লা,ফেনী,ব্রাহ্মণবাড়িয়া,নোয়াখালী,চাঁদপুর,লক্ষ্মীপুর,খাগড়াছড়ি,রাঙ্গামাটি,বান্দরবান"],["রাজশাহী","রাজশাহী,বগুড়া,জয়পুরহাট,নওগাঁ,নাটোর,চাঁপাইনবাবগঞ্জ,পাবনা,সিরাজগঞ্জ"],["খুলনা","খুলনা,বাগেরহাট,সাতক্ষীরা,যশোর,নড়াইল,মাগুরা,ঝিনাইদহ,কুষ্টিয়া,চুয়াডাঙ্গা,মেহেরপুর"],["বরিশাল","বরিশাল,বরগুনা,ভোলা,ঝালকাঠি,পটুয়াখালী,পিরোজপুর"],["সিলেট","সিলেট,মৌলভীবাজার,হবিগঞ্জ,সুনামগঞ্জ"],["রংপুর","রংপুর,দিনাজপুর,গাইবান্ধা,কুড়িগ্রাম,লালমনিরহাট,নীলফামারী,পঞ্চগড়,ঠাকুরগাঁও"],["ময়মনসিংহ","ময়মনসিংহ,জামালপুর,শেরপুর,নেত্রকোণা"]];
 var dv=0;
-function show(v){[].forEach.call(document.querySelectorAll(".view"),function(e){e.classList.toggle("on",e.id=="v_"+v)});[].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.classList.toggle("on",b.dataset.v==v)});scrollTo(0,0);if(v=="me")loadMe()}
+function show(v){if(v=="me"&&!user){$("login").showModal();return}[].forEach.call(document.querySelectorAll(".view"),function(e){e.classList.toggle("on",e.id=="v_"+v)});[].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.classList.toggle("on",b.dataset.v==v)});scrollTo(0,0);if(v=="me")loadMe()}
 [].forEach.call(document.querySelectorAll("#nav [data-v]"),function(b){b.onclick=function(){show(b.dataset.v)}});
 function pcards(){var c=$("pc");c.innerHTML="";PUJAS.forEach(function(p){var b=document.createElement("button");b.textContent=p;b.onclick=function(){puja=p;tabs();load();show("pujo")};c.appendChild(b)})}
 function fillDist(){var h='<option value="">জেলা বেছে নিন</option>';DIV.forEach(function(d){h+='<optgroup label="'+d[0]+' বিভাগ">'+d[1].split(",").map(function(x){return"<option>"+x+"</option>"}).join("")+"</optgroup>"});$("fd").innerHTML=h}
@@ -283,7 +284,7 @@ async function mineFor(ps){if(!user||!ps.length)return;var m=await sb.from("reac
 async function fill(g,q,msg){var r=await q;if(r.error){g.innerHTML='<p class="empty">লোড করা যায়নি। একটু পরে আবার চেষ্টা করুন।</p>';return}var ps=r.data||[];await mineFor(ps);g.innerHTML="";if(!ps.length){g.innerHTML='<p class="empty">'+esc(msg)+'</p>';return}ps.forEach(function(p){g.appendChild(card(p))})}
 function locLoad(list,t){var g=$("lgrid");g.innerHTML='<p class="empty">লোড হচ্ছে...</p>';fill(g,sb.from("posts").select("*, reactions(count)").eq("approved",true).in("district",list).order("created_at",{ascending:false}),t+"-এর কোনো ছবি বা ভিডিও এখনো নেই। প্রথমটা আপনিই দিন।")}
 function loadHome(){fill($("hgrid"),sb.from("posts").select("*, reactions(count)").eq("approved",true).order("created_at",{ascending:false}).limit(6),"এখনো কিছু নেই। প্রথম ছবি বা ভিডিওটা আপনিই দিন।")}
-function reload(){if(!user)return;load();loadHome()}
+function reload(){load();loadHome()}
 var GI='<svg width="22" height="22" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.1 5.3-4.5 6.9l7.3 5.7c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-2.9-.8-4.7s.3-3.3.8-4.7l-7.9-6.1C.9 16.4 0 20.1 0 24s.9 7.6 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.3-5.7c-2 1.4-4.7 2.2-8.6 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>';$("g").innerHTML=GI+"<span>Google দিয়ে লগইন</span>";$("g2").innerHTML=GI+"<span>Google দিয়ে লগইন করুন</span>";
 if(/FBAN|FBAV|Instagram|Messenger|MicroMessenger|Line\//i.test(navigator.userAgent))$("warn").style.display="block";
 $("g2").onclick=function(){$("g").click()};
@@ -308,6 +309,8 @@ async function delMine(p){
   if(r.error){alert(r.error.message);return}
   if(k.length)sb.storage.from("media").remove(k);
   loadMe();loadHome()}
+document.addEventListener("click",function(e){var t=e.target;if(t.tagName=="IMG"&&t.closest(".card")){$("lbi").src=t.src;$("lb").showModal()}});
+$("lb").onclick=function(){this.close()};
 fillDist();ldivs();tabs();loadSettings();
 </script>
 </body>
