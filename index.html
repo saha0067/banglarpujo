@@ -102,10 +102,9 @@ h2::after{content:"";flex:1;height:8px;border-radius:4px;opacity:.6;background:r
 .dt{margin:2px 0 0;color:var(--dim);font-size:.88rem}
 .ch .dt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .mw{position:relative;background:var(--ph)}
-.sl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.sl::-webkit-scrollbar{display:none}
+.sl{display:flex;align-items:center;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.sl::-webkit-scrollbar{display:none}
 .sd{flex:none;width:100%;scroll-snap-align:center}
-.card img,.card video{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--ph)}
-.card video{object-fit:contain}.card img{cursor:zoom-in}
+.card img,.card video{display:block;width:100%;height:auto;max-height:90vh;object-fit:contain;background:var(--ph)}.card img{cursor:zoom-in}
 .ct{position:absolute;top:12px;right:12px;padding:2px 12px;border-radius:99px;background:rgba(8,11,38,.7);color:#fff;font-size:.82rem;pointer-events:none}
 .b{padding:14px 16px 18px}
 .b p{margin:10px 0 0;font-size:.98rem}
@@ -205,13 +204,12 @@ footer{margin-top:32px;padding:36px 20px 8px;color:var(--dim);font-size:.95rem;b
 .dn{padding:10px 0;border-bottom:1px solid var(--line)}
 .dn .r{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 
-#cofb{position:relative;gap:12px;padding:12px 16px;border-radius:18px;background:linear-gradient(135deg,#FFE259,#FFB347)!important;color:#3b2314!important;box-shadow:0 8px 22px rgba(255,179,71,.35);transition:transform .2s,box-shadow .2s}
+#cofb{position:relative;flex-direction:column;justify-content:center;text-align:center;gap:8px;padding:12px 16px;border-radius:18px;background:linear-gradient(135deg,#FFE259,#FFB347)!important;color:#3b2314!important;box-shadow:0 8px 22px rgba(255,179,71,.35);transition:transform .2s,box-shadow .2s}
 #cofb:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,179,71,.5);color:#3b2314!important}
 #cofb:active{transform:scale(.98)}
 #cofb .cup{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.55)}
-#cofb .ct{display:flex;flex-direction:column;line-height:1.25}
+.cofn{margin:8px 0 0;font-size:.9rem;line-height:1.4;opacity:.85}
 #cofb .ct b{font:700 1.15rem "Hind Siliguri",system-ui,sans-serif;letter-spacing:.2px;color:#3b2314}
-#cofb .ct small{margin-top:3px;font-size:.78rem;opacity:.85;color:#5a3a22}
 #cofb .st{fill:none;stroke:#7a4a2a;stroke-width:2;stroke-linecap:round;opacity:0;animation:stm 2.4s ease-in-out infinite}
 #cofb .s2{animation-delay:.5s}#cofb .s3{animation-delay:1s}
 @keyframes stm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-4px)}}
@@ -260,7 +258,7 @@ footer{margin-top:32px;padding:36px 20px 8px;color:var(--dim);font-size:.95rem;b
 </div>
 <div>
 <h4>ডোনেশন করুন</h4>
-<a class="fcard" href="#" id="cofb"><span class="cup" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><path class="st s1" d="M16 12c-2-3 2-4 0-8"/><path class="st s2" d="M24 12c-2-3 2-4 0-8"/><path class="st s3" d="M32 12c-2-3 2-4 0-8"/><path d="M8 18h28v10a12 12 0 0 1-12 12h-4A12 12 0 0 1 8 28z" fill="#fff" stroke="#3b2314" stroke-width="2.5" stroke-linejoin="round"/><path d="M36 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/><path d="M11 20h22v3a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3z" fill="#7a4a2a"/><path d="M12 42h24" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="ct"><b>Buy us a coffee</b><small>ভালো লাগলে এক কাপ কফি খাওয়ান ❤️</small></span></a>
+<a class="fcard" href="#" id="cofb"><span class="cup" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><path class="st s1" d="M16 12c-2-3 2-4 0-8"/><path class="st s2" d="M24 12c-2-3 2-4 0-8"/><path class="st s3" d="M32 12c-2-3 2-4 0-8"/><path d="M8 18h28v10a12 12 0 0 1-12 12h-4A12 12 0 0 1 8 28z" fill="#fff" stroke="#3b2314" stroke-width="2.5" stroke-linejoin="round"/><path d="M36 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/><path d="M11 20h22v3a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3z" fill="#7a4a2a"/><path d="M12 42h24" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/></svg></span></a><p class="cofn">ওয়েবসাইটটি ভালো লাগলে কফি কিনে ডোনেশন করতে পারেন। ডোনেশনের জন্য কফির উপর ট্যাপ করুন ☕</p>
 </div>
 </div>
 <div class="fcopy">© ২০২৬ আমার পুজো। সর্বস্বত্ব সংরক্ষিত। 🪔</div>
@@ -288,7 +286,7 @@ privacy:{t:"গোপনীয়তা নীতি",h:`<p>আপনার ত�
 terms:{t:"সেবার শর্তাবলী",h:`<p>এই সাইট ব্যবহার করলে আপনি নিচের শর্তগুলো মেনে নিচ্ছেন বলে ধরা হবে।</p>
 <h4>১. ব্যবহার</h4><p>সাইটটি সবার জন্য বিনামূল্যে। অবৈধ বা ক্ষতিকর কাজে এটি ব্যবহার করা যাবে না।</p>
 <h4>২. আপনার আপলোড</h4><ul><li>আপনি যা আপলোড করছেন তার অধিকার বা অনুমতি আপনার আছে, এটা নিশ্চিত করতে হবে</li><li>আপলোড করে আপনি এই সাইটে তা দেখানোর অনুমতি দিচ্ছেন। মালিকানা আপনারই থাকবে</li><li>গাইডলাইন না মানলে যেকোনো কনটেন্ট সরিয়ে দেওয়ার অধিকার আমাদের আছে</li></ul>
-<h4>৩. ডোনেশন</h4><p>"Buy us a coffee" সম্পূর্ণ স্বেচ্ছায় দেওয়া সহায়তা। এক কাপ কফি ২০ টাকা। পেমেন্ট ফেরতযোগ্য নয় এবং এর বিনিময়ে কোনো বিশেষ সুবিধা পাওয়া যায় না।</p><h4>৪. অ্যাকাউন্ট</h4><p>নিজের অ্যাকাউন্টের নিরাপত্তা আপনার দায়িত্ব। নিয়ম ভাঙলে অ্যাকাউন্ট বন্ধ করা হতে পারে।</p>
+<h4>৩. ডোনেশন</h4><p>"এক কাপ কফি" সম্পূর্ণ স্বেচ্ছায় দেওয়া সহায়তা। এক কাপ কফি ২০ টাকা। পেমেন্ট ফেরতযোগ্য নয় এবং এর বিনিময়ে কোনো বিশেষ সুবিধা পাওয়া যায় না।</p><h4>৪. অ্যাকাউন্ট</h4><p>নিজের অ্যাকাউন্টের নিরাপত্তা আপনার দায়িত্ব। নিয়ম ভাঙলে অ্যাকাউন্ট বন্ধ করা হতে পারে।</p>
 <h4>৫. দায়মুক্তি</h4><p>সাইটটি "যেমন আছে" সেভাবে দেওয়া হয়। কনটেন্টের ভুল, বিঘ্ন বা তথ্য হারানোর জন্য আমরা দায়ী থাকব না। ব্যবহারকারীদের দেওয়া কনটেন্টের দায় সংশ্লিষ্ট ব্যবহারকারীর।</p>
 <h4>৬. পরিবর্তন</h4><p>এই শর্তাবলী সময়ে সময়ে বদলাতে পারে। পরিবর্তনের পরও সাইট ব্যবহার করলে নতুন শর্ত মেনে নেওয়া হবে।</p>`},
 copy:{t:"কপিরাইট নীতি",h:`<p>আমরা সৃষ্টিশীল মানুষের কাজকে সম্মান করি।</p>
@@ -596,7 +594,7 @@ async function openArtist(name){
 fillDist();ldivs();tabs();loadSettings();loadBoard();
 </script>
 
-<dialog id="cof"><h3 id="cft">☕ Buy us a coffee</h3><div class="cb" id="cfb"></div></dialog>
+<dialog id="cof"><h3 id="cft">☕ এক কাপ কফি</h3><div class="cb" id="cfb"></div></dialog>
 <script>
 (function(){
 var NUM={bkash:"01964496575",nagad:"01626073086"},NAME={bkash:"বিকাশ",nagad:"নগদ"},PRICE=20;
@@ -610,7 +608,7 @@ function open_(){
   st={n:1,m:"bkash",nm:((user.user_metadata||{}).full_name||(user.user_metadata||{}).name||""),step:1};
   render();if(!d.open)d.showModal();d.scrollTop=0}
 function step1(){
-  T.textContent="☕ Buy us a coffee";
+  T.textContent="☕ এক কাপ কফি";
   B.innerHTML='<p>সাইটটা ভালো লাগলে আমাদের এক কাপ কফি খাওয়াতে পারেন ☕ আপনার ছোট্ট এই সহায়তাই আমাদের সাইটটা চালু রাখতে আর নতুন কিছু করতে উৎসাহ দেয়। অনেক ধন্যবাদ! 🙏</p><p class="who">লগইন: '+E(user.email||"")+'</p>'
   +'<label style="text-align:center">কয় কাপ?</label><div class="stp"><button type="button" id="cm" aria-label="কমান">−</button><b id="cn">'+bn(st.n)+'</b><button type="button" id="cp" aria-label="বাড়ান">+</button></div>'
   +'<div class="chips">'+[1,2,5,10].map(function(x){return'<button type="button" data-q="'+x+'" class="'+(st.n==x?"on":"")+'">'+bn(x)+'</button>'}).join("")+'</div>'
