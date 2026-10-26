@@ -283,19 +283,36 @@ footer{text-align:center;padding:30px 16px 12px;color:var(--dim)}
 .fb img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid var(--line)}
 .fb b{font:400 1.5rem "Galada",cursive;color:var(--brand)}
 .fb small{font-size:.8rem;opacity:.8}
+.pills button{font:inherit;cursor:pointer;padding:6px 16px;border-radius:99px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:.88rem;font-weight:600;backdrop-filter:blur(6px);transition:.2s}
+.pills button:hover{background:#fff;color:#8A1448;transform:translateY(-2px)}
+.pills button:active{transform:scale(.95)}
+.art{display:flex;align-items:center;gap:8px;width:100%;margin-top:14px;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--text);font:inherit;font-size:.92rem;text-align:left;cursor:pointer;transition:.2s}
+.art b{color:var(--brand);font-weight:700}
+.art i{margin-left:auto;font-style:normal;color:var(--red);font-size:1.4rem;line-height:1}
+.art:hover{border-color:var(--red);transform:translateY(-1px)}
+.art.static{cursor:default}.art.static:hover{border-color:var(--line);transform:none}
+#artb{margin:14px 0 4px}
+.alist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:14px}
+.ac{display:flex;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);border-radius:18px;background:var(--panel);color:var(--text);font:inherit;text-align:left;cursor:pointer;box-shadow:0 4px 12px rgba(94,28,70,.06);transition:.2s}
+.ac:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 12px 24px var(--ring)}
+.ac img,.ac .ph{flex:none;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--soft);display:grid;place-items:center;font-size:1.6rem;background:var(--soft)}
+.ac b{display:block;font-size:1.05rem}.ac small{color:var(--dim)}
+.ac i{margin-left:auto;font-style:normal;color:var(--red);font-size:1.5rem}
 </style>
 </head>
 <body class="out">
 <div class="top"><header class="bar"><a class="logo" href="#"><img data-logo alt="" class="lg"><span id="sn">বাংলার পুজো</span></a><div class="acts"><button class="btn ghost sm" id="th" type="button">☀️</button><button class="btn ghost sm" id="adm" hidden>অ্যাডমিন</button><button class="btn ghost sm" id="auth"></button></div></header>
 </div>
 <div class="par"></div>
-<nav class="bnav" id="nav"><button data-v="home" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>হোম</span></button><button data-v="pujo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.2 3 4 5 4 7.5a4 4 0 0 1-8 0C8 7 9.8 5 12 2z"/><path d="M3 15h18a9 6 0 0 1-18 0z"/></svg><span>পুজো</span></button><button id="up" class="plus" type="button" aria-label="আপলোড">+</button><button data-v="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>বিভাগ</span></button><button data-v="me"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span>মি</span></button></nav>
+<nav class="bnav" id="nav"><button data-v="home" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>হোম</span></button><button data-v="pujo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.2 3 4 5 4 7.5a4 4 0 0 1-8 0C8 7 9.8 5 12 2z"/><path d="M3 15h18a9 6 0 0 1-18 0z"/></svg><span>পুজো</span></button><button id="up" class="plus" type="button" aria-label="আপলোড">+</button><button data-v="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>বিভাগ</span></button><button data-v="artists"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.3 0 2-.8 2-1.8 0-.5-.2-.9-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.4 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/></svg><span>শিল্পী</span></button><button data-v="me"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span>মি</span></button></nav>
 <main>
-<section class="view on" id="v_home"><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><span class="eb">🪔 ছবি · ভিডিও · স্মৃতি</span><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button><button class="btn ghost" onclick="show('loc')">📍 এলাকা অনুযায়ী</button></div><div class="pills"><span>📍 ৬৪ জেলা</span><span>🗺️ ৮ বিভাগ</span><span>🪔 সব পুজোর ছবি-ভিডিও</span></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
+<section class="view on" id="v_home"><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><span class="eb">🪔 ছবি · ভিডিও · স্মৃতি</span><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button></div><div class="pills"><button type="button" onclick="show('loc')">📍 ৬৪ জেলা</button><button type="button" onclick="show('pujo')">🪔 সব পুজোর ছবি-ভিডিও</button></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
 <div class="upnote"><p>📸 <b>পুজোর ছবি বা ভিডিও আছে?</b> যে কেউ আপলোড করতে পারেন। অ্যাডমিন দেখে অনুমতি দিলে সবার সামনে আসবে।</p><button class="btn" id="up2">➕ আপলোড করুন</button></div>
 <div class="wrap"><h2>🏆 এ বছরের সেরা</h2><div id="board"></div><h2>পুজো বেছে নিন</h2><div class="pc" id="pc"></div><h2>সাম্প্রতিক ছবি ও ভিডিও</h2><div class="grid" id="hgrid"></div></div></section>
 <section class="view" id="v_pujo"><div class="wrap"><h2>বছর বেছে নিন</h2><div class="row" id="years"></div><h2 id="ttl"></h2><div class="row p" id="pujas"></div><div class="grid" id="grid"></div></div></section>
 <section class="view" id="v_loc"><div class="wrap"><h2>বিভাগ বেছে নিন</h2><div class="pc" id="ldiv"></div><div id="lsub" hidden><h2 id="lt"></h2><div class="row p" id="ldist"></div></div><div class="grid" id="lgrid"></div></div></section>
+<section class="view" id="v_artists"><div class="wrap"><h2>🎨 প্রতিমাশিল্পী</h2><p class="empty" style="margin:-6px 0 12px">যাঁদের গড়া প্রতিমা এই সাইটে আছে। নামে চাপলে তাঁর সব কাজ দেখতে পাবেন।</p><input type="search" id="asr" placeholder="শিল্পীর নাম খুঁজুন..."><div class="alist" id="alist"></div></div></section>
+<section class="view" id="v_art"><div class="wrap"><button type="button" class="btn ghost sm" id="artb">← ফিরে যান</button><div class="pf" id="artp"></div><div class="grid" id="artg"></div></div></section>
 <section class="view" id="v_me"><div class="wrap"><div class="pf" id="pf"></div><h2>সেভ করা ছবি</h2><div class="grid" id="sgrid"></div><h2>আমার আপলোড</h2><div class="grid" id="mgrid"></div></div></section>
 </main>
 <footer><div class="fb"><img data-logo alt=""><b>বাংলার পুজো</b><span>মন ভরে বাংলার ঠাকুর দেখবে তুমিও</span><small>© ২০২৬ বাংলার পুজো · সবার জন্য, সবার সাথে 🪔</small></div></footer>
@@ -353,8 +370,10 @@ function card(p){
   var items=p.media&&p.media.length?p.media:[{url:p.media_url,type:p.media_type}];
   function el(m){return m.type=="video"?'<video src="'+esc(m.url)+'" controls preload="metadata" playsinline></video>':'<img src="'+esc(m.url)+'" alt="'+esc(p.puja)+'" loading="lazy">'}
   var media=items.length==1?el(items[0]):'<div class="mw"><div class="sl">'+items.map(function(m){return'<div class="sd">'+el(m)+'</div>'}).join("")+'</div><span class="ct">1/'+items.length+'</span></div>';
-  c.innerHTML='<div class="ch"><span class="av" aria-hidden="true">🪔</span><div class="ci"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+((p.location||p.district)?'<div class="dt">📍 '+esc([p.location,p.district].filter(Boolean).join(", "))+'</div>':'')+'</div></div>'+media+'<div class="b"><div class="act"><div class="re"></div><div class="ac2"></div></div><div class="meta"><span class="vw"></span><span class="rc"></span></div>'+(p.artist?'<div class="dt">🎨 প্রতিমাশিল্পী: '+esc(p.artist)+'</div>':'')+(p.organizer?'<div class="dt">🏛️ আয়োজনে: '+esc(p.organizer)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+'</div>';
+  var au=(p.artist||"").trim(),artH=au?(/^(unknown|অজানা|জানা নেই)$/i.test(au)?'<div class="art static">🎨 প্রতিমাশিল্পী: <b>'+esc(au)+'</b></div>':'<button type="button" class="art">🎨 প্রতিমাশিল্পী: <b>'+esc(au)+'</b><i>›</i></button>'):"";
+  c.innerHTML='<div class="ch"><span class="av" aria-hidden="true">🪔</span><div class="ci"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+((p.location||p.district)?'<div class="dt">📍 '+esc([p.location,p.district].filter(Boolean).join(", "))+'</div>':'')+'</div></div>'+media+'<div class="b"><div class="act"><div class="re"></div><div class="ac2"></div></div><div class="meta"><span class="vw"></span><span class="rc"></span></div>'+(p.organizer?'<div class="dt">🏛️ আয়োজনে: '+esc(p.organizer)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+artH+'</div>';
   var vw=c.querySelector(".vw"),rc=c.querySelector(".rc"),re=c.querySelector(".re");
+  var ar=c.querySelector("button.art");if(ar)ar.onclick=function(){openArtist(au)};
   var sl=c.querySelector(".sl");if(sl){var ct=c.querySelector(".ct");sl.onscroll=function(){ct.textContent=(Math.round(sl.scrollLeft/sl.clientWidth)+1)+"/"+items.length}}
   function paint(){vw.textContent=views+" জন দেখেছেন";rc.textContent=count+" রিঅ্যাকশন";[].forEach.call(re.children,function(b){b.className=mine[p.id]==b.textContent?"on":""})}
   ["❤️","🙏","😍"].forEach(function(e){var b=document.createElement("button");b.textContent=e;b.onclick=async function(){
@@ -554,6 +573,32 @@ var ua=navigator.userAgent;sb.rpc("track_visit",{vid:v,ref:document.referrer||nu
 function ap(){document.documentElement.setAttribute("data-theme",t);var mt=document.querySelector("meta[name=theme-color]");if(mt)mt.content=t=="light"?"#FFF8EF":"#160E10";$("th").textContent=t=="light"?"🌙":"☀️";$("th").setAttribute("aria-label",t=="light"?"ডার্ক মোড":"লাইট মোড")}
 $("th").onclick=function(){t=t=="light"?"dark":"light";try{localStorage.setItem("bp_theme",t)}catch(e){}ap()};ap()})();
 $("up2").onclick=function(){$("up").click()};
+var curV="home",prevV="home",_show=show;
+show=function(v){if(v=="me"&&!user)return _show(v);if(v=="art"&&curV!="art")prevV=curV;curV=v;_show(v);var nb=document.querySelector('#nav [data-v="artists"]');if(nb)nb.classList.toggle("on",v=="artists"||v=="art");if(v=="artists")loadArtists()};
+var ART=[];
+async function loadArtists(){
+  var g=$("alist");g.innerHTML='<p class="empty">লোড হচ্ছে...</p>';
+  var r=await sb.from("posts").select("artist,district,media_url,media_type,media,created_at").eq("approved",true).not("artist","is",null).order("created_at",{ascending:false}).limit(3000);
+  if(r.error){g.innerHTML='<p class="empty">লোড করা যায়নি।</p>';return}
+  var m={},unk=/^(unknown|অজানা|জানা নেই)$/i;
+  (r.data||[]).forEach(function(p){var n=(p.artist||"").trim();if(!n||unk.test(n))return;var a=m[n]||(m[n]={n:n,c:0,d:{},th:null});a.c++;if(p.district)a.d[p.district]=1;if(!a.th){var f=(p.media&&p.media.length?p.media:[{url:p.media_url,type:p.media_type}]).filter(function(x){return x.type!="video"})[0];if(f)a.th=f.url}});
+  ART=Object.keys(m).map(function(k){return m[k]}).sort(function(a,b){return b.c-a.c||a.n.localeCompare(b.n,"bn")});
+  drawArtists()}
+function drawArtists(){
+  var q=($("asr").value||"").trim().toLowerCase(),g=$("alist");g.innerHTML="";
+  var list=ART.filter(function(a){return a.n.toLowerCase().indexOf(q)>-1});
+  if(!list.length){g.innerHTML='<p class="empty">'+(ART.length?"কোনো শিল্পী পাওয়া যায়নি।":"এখনো কোনো প্রতিমাশিল্পীর নাম নেই।")+'</p>';return}
+  list.forEach(function(a){var b=document.createElement("button");b.type="button";b.className="ac";b.innerHTML=(a.th?'<img src="'+esc(a.th)+'" alt="" loading="lazy">':'<span class="ph">🎨</span>')+'<div><b>'+esc(a.n)+'</b><small>'+a.c+'টি কাজ · '+Object.keys(a.d).length+'টি জেলা</small></div><i>›</i>';b.onclick=function(){openArtist(a.n)};g.appendChild(b)})}
+$("asr").oninput=drawArtists;
+$("artb").onclick=function(){show(prevV||"home")};
+async function openArtist(name){
+  show("art");$("artp").innerHTML="";$("artg").innerHTML='<p class="empty">লোড হচ্ছে...</p>';
+  var r=await sb.from("posts").select("*, reactions(count)").eq("approved",true).eq("artist",name).order("year",{ascending:false}).order("created_at",{ascending:false});
+  if(r.error){$("artg").innerHTML='<p class="empty">লোড করা যায়নি।</p>';return}
+  var ps=r.data||[],yr={},ds={};ps.forEach(function(p){yr[p.year]=1;if(p.district)ds[p.district]=1});
+  $("artp").innerHTML='<div><h3>🎨 '+esc(name)+'</h3><div class="empty">প্রতিমাশিল্পী</div><div class="stats"><span><b>'+ps.length+'</b>কাজ</span><span><b>'+Object.keys(yr).length+'</b>বছর</span><span><b>'+Object.keys(ds).length+'</b>জেলা</span></div></div>';
+  await mineFor(ps);var g=$("artg");g.innerHTML="";
+  ps.forEach(function(p){g.appendChild(card(p))})}
 fillDist();ldivs();tabs();loadSettings();loadBoard();
 </script>
 </body>
