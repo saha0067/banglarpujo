@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amarpujo.vercel.app/sitemap.xml
