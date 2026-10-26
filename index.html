@@ -162,11 +162,59 @@ label{display:flex;flex-direction:column;gap:6px;color:var(--dim);font-size:.95r
 input,select,textarea{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font:inherit;font-size:16px}
 textarea{min-height:96px}
 input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px var(--ring)}
-footer{margin-top:32px;padding:36px 16px 12px;text-align:center;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line)}
-.fb{display:flex;flex-direction:column;align-items:center;gap:6px}
-.fb img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
-.fb b{font:400 1.6rem var(--serif);color:var(--text)}.fb small{opacity:.8}
+footer{margin-top:32px;padding:36px 20px 8px;color:var(--dim);font-size:.95rem;border-top:1px solid var(--line);background:var(--bg2)}
+.ft{display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;max-width:1160px;margin:0 auto}
+.ft h4{margin:0 0 8px;font:600 1.05rem var(--sans);color:var(--text)}
+.ft p{margin:10px 0 0;line-height:1.7}
+.ft ul{list-style:none;margin:0;padding:0}
+.ft a{display:inline-block;padding:3px 0;color:var(--dim);text-decoration:none;line-height:1.9}
+.ft a:hover{color:var(--gold)}
+.fbrand{display:flex;align-items:center;gap:10px;font:400 1.5rem/1 var(--serif);color:var(--text)}
+.fbrand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.fcard{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#1c1e21;color:#fff!important;line-height:1.3!important}
+.fcard b{display:block;font:600 .95rem var(--sans)}.fcard small{opacity:.75;font-size:.75rem}
+.fcard .gi{width:42px;height:42px;border-radius:8px;background:var(--cta);display:grid;place-items:center;font-size:1.3rem;flex:none}
+.fcopy{max-width:1160px;margin:28px auto 0;padding:20px 0 4px;text-align:center;border-top:1px solid var(--line);font-size:.88rem}
+@media(min-width:760px){.ft{grid-template-columns:1.4fr 1fr 1fr 1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+#pgd{width:min(94vw,640px)}
+#pgd .pgb{line-height:1.85}
+#pgd .pgb h4{margin:18px 0 4px;font:600 1.05rem var(--sans);color:var(--text)}
+#pgd .pgb p,#pgd .pgb li{margin:0 0 8px;color:var(--dim)}
+#pgd .pgb ul{margin:0 0 8px;padding-left:20px}
+#pgd .pgb a{color:var(--gold)}
+#pgd .pgx{position:sticky;bottom:-24px;padding-top:12px;background:var(--panel)}
+
+#cof .cb{line-height:1.8}
+#cof .cb p{margin:0 0 10px;color:var(--dim)}
+#cof label{display:block;margin:12px 0 4px;font-weight:600;color:var(--text);font-size:.95rem}
+#cof input[type=text],#cof input[type=tel]{width:100%;min-height:46px;padding:8px 14px;border:1px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);font:inherit}
+#cof .stp{display:flex;align-items:center;justify-content:center;gap:14px;margin:8px 0}
+#cof .stp button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--text);font-size:1.5rem;cursor:pointer}
+#cof .stp b{min-width:60px;text-align:center;font:400 2rem var(--serif);color:var(--gold)}
+#cof .chips,#cof .mth{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#cof .chips button,#cof .mth button{padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--text);font:600 .95rem var(--sans);cursor:pointer}
+#cof .chips button.on,#cof .mth button.on{background:var(--soft);border-color:var(--gold);color:var(--gold)}
+#cof .tot{margin:14px 0;padding:12px;border-radius:14px;background:var(--soft);text-align:center;font-size:1.15rem;color:var(--text)}
+#cof .num{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px dashed var(--gold);border-radius:14px;font:600 1.3rem var(--sans);color:var(--text);letter-spacing:.5px}
+#cof ol{margin:10px 0;padding-left:20px;color:var(--dim)}
+#cof .er{color:var(--red);min-height:1.4em;margin:8px 0 0}
+#cof .bt{display:flex;gap:8px;margin-top:14px}#cof .bt .btn{flex:1}
+#cof .who{font-size:.85rem;opacity:.85}
+.dn{padding:10px 0;border-bottom:1px solid var(--line)}
+.dn .r{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+
+#cofb{position:relative;gap:12px;padding:12px 16px;border-radius:18px;background:linear-gradient(135deg,#FFE259,#FFB347)!important;color:#3b2314!important;box-shadow:0 8px 22px rgba(255,179,71,.35);transition:transform .2s,box-shadow .2s}
+#cofb:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(255,179,71,.5);color:#3b2314!important}
+#cofb:active{transform:scale(.98)}
+#cofb .cup{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.55)}
+#cofb .ct{display:flex;flex-direction:column;line-height:1.25}
+#cofb .ct b{font:700 1.15rem "Hind Siliguri",system-ui,sans-serif;letter-spacing:.2px;color:#3b2314}
+#cofb .ct small{margin-top:3px;font-size:.78rem;opacity:.85;color:#5a3a22}
+#cofb .st{fill:none;stroke:#7a4a2a;stroke-width:2;stroke-linecap:round;opacity:0;animation:stm 2.4s ease-in-out infinite}
+#cofb .s2{animation-delay:.5s}#cofb .s3{animation-delay:1s}
+@keyframes stm{0%{opacity:0;transform:translateY(4px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-4px)}}
 </style>
 </head>
 <body class="out">
@@ -184,8 +232,85 @@ footer{margin-top:32px;padding:36px 16px 12px;text-align:center;color:var(--dim)
 <section class="view" id="v_art"><div class="wrap"><button type="button" class="btn ghost sm" id="artb">← ফিরে যান</button><div class="pf" id="artp"></div><div class="grid" id="artg"></div></div></section>
 <section class="view" id="v_me"><div class="wrap"><div class="pf" id="pf"></div><h2>সেভ করা ছবি</h2><div class="grid" id="sgrid"></div><h2>আমার আপলোড</h2><div class="grid" id="mgrid"></div></div></section>
 </main>
-<footer><div class="fb"><img data-logo alt=""><b>আমার পুজো</b><span>মন ভরে বাংলার ঠাকুর দেখবে তুমিও</span><small>© ২০২৬ আমার পুজো · সবার জন্য, সবার সাথে 🪔</small></div></footer>
+<footer>
+<div class="ft">
+<div>
+<div class="fbrand"><img data-logo alt=""><span>আমার পুজো</span></div>
+<p>মন ভরে বাংলার ঠাকুর দেখবে তুমিও। পুজোর ছবি, ভিডিও আর স্মৃতির একটি উন্মুক্ত সংগ্রহ।</p>
+</div>
+<div>
+<h4>লিঙ্ক</h4>
+<ul>
+<li><a href="#" onclick="show('pujo');scrollTo(0,0);return false">পুজো দেখুন</a></li>
+<li><a href="#" onclick="show('loc');scrollTo(0,0);return false">বিভাগ অনুযায়ী</a></li>
+<li><a href="#" onclick="show('artists');scrollTo(0,0);return false">প্রতিমাশিল্পী</a></li>
+<li><a href="#" onclick="document.getElementById('up').click();return false">ছবি আপলোড করুন</a></li>
+</ul>
+</div>
+<div>
+<h4>কমিউনিটি ও নীতি</h4>
+<ul>
+<li><a href="#" data-pg="about">আমাদের সম্পর্কে</a></li>
+<li><a href="#" data-pg="guide">গাইডলাইন</a></li>
+<li><a href="#" data-pg="privacy">গোপনীয়তা নীতি</a></li>
+<li><a href="#" data-pg="terms">সেবার শর্তাবলী</a></li>
+<li><a href="#" data-pg="copy">কপিরাইট নীতি</a></li>
+<li><a href="#" data-pg="contact">যোগাযোগ</a></li>
+</ul>
+</div>
+<div>
+<h4>ডোনেশন করুন</h4>
+<a class="fcard" href="#" id="cofb"><span class="cup" aria-hidden="true"><svg viewBox="0 0 48 48" width="40" height="40"><path class="st s1" d="M16 12c-2-3 2-4 0-8"/><path class="st s2" d="M24 12c-2-3 2-4 0-8"/><path class="st s3" d="M32 12c-2-3 2-4 0-8"/><path d="M8 18h28v10a12 12 0 0 1-12 12h-4A12 12 0 0 1 8 28z" fill="#fff" stroke="#3b2314" stroke-width="2.5" stroke-linejoin="round"/><path d="M36 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/><path d="M11 20h22v3a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3z" fill="#7a4a2a"/><path d="M12 42h24" stroke="#3b2314" stroke-width="2.5" stroke-linecap="round"/></svg></span><span class="ct"><b>Buy us a coffee</b><small>ভালো লাগলে এক কাপ কফি খাওয়ান ❤️</small></span></a>
+</div>
+</div>
+<div class="fcopy">© ২০২৬ আমার পুজো। সর্বস্বত্ব সংরক্ষিত। 🪔</div>
+</footer>
 
+<dialog id="pgd"><h3 id="pgt"></h3><div class="pgb" id="pgb"></div><div class="pgx"><button type="button" class="btn ghost" onclick="this.closest('dialog').close()">বন্ধ করুন</button></div></dialog>
+<script>
+(function(){
+var MAIL="encore.bd26@gmail.com";
+var P={
+about:{t:"আমাদের সম্পর্কে",h:`<p>"আমার পুজো" বাংলার দুর্গাপূজা ও অন্যান্য পুজোর ছবি, ভিডিও আর স্মৃতির একটি উন্মুক্ত সংগ্রহ। আমরা চাই ঘরে বসেই সবাই যেন মন ভরে বাংলার ঠাকুর, মণ্ডপ আর প্রতিমাশিল্পীর কাজ দেখতে পারেন।</p>
+<h4>আমরা কী করি</h4><ul><li>বছর, বিভাগ ও জেলা অনুযায়ী পুজোর ছবি ও ভিডিও সাজিয়ে রাখি</li><li>প্রতিমাশিল্পীদের কাজ সবার সামনে তুলে ধরি</li><li>সেরা প্রতিমা ও সেরা মণ্ডপের জন্য ভোটের সুযোগ দিই</li></ul>
+<h4>কে আপলোড করতে পারে</h4><p>যে কেউ ছবি বা ভিডিও আপলোড করতে পারেন। অ্যাডমিন দেখে অনুমতি দিলে তবেই তা সবার সামনে আসে।</p>
+<p>এটি একটি অলাভজনক, স্বেচ্ছাসেবামূলক উদ্যোগ।</p>`},
+guide:{t:"কমিউনিটি গাইডলাইন",h:`<p>সবার জন্য সুন্দর ও নিরাপদ পরিবেশ রাখতে আপলোড ও ব্যবহারের সময় এগুলো মেনে চলুন।</p>
+<h4>যা করবেন</h4><ul><li>নিজের তোলা ছবি বা ভিডিও আপলোড করুন, অথবা যার তোলা তাঁর অনুমতি নিন</li><li>পুজো, প্রতিমা, মণ্ডপ বা উৎসবের সাথে সম্পর্কিত কনটেন্ট দিন</li><li>পুজোর নাম, জায়গা ও বছর ঠিকভাবে লিখুন</li><li>প্রতিমাশিল্পীর নাম জানা থাকলে সঠিকভাবে উল্লেখ করুন</li></ul>
+<h4>যা করবেন না</h4><ul><li>কোনো ধর্ম, সম্প্রদায় বা মানুষের প্রতি ঘৃণা, অপমান বা উস্কানিমূলক কনটেন্ট</li><li>অশ্লীল, সহিংস বা বিরক্তিকর কনটেন্ট</li><li>অন্যের ছবি বা ভিডিও নিজের নামে চালানো</li><li>বিজ্ঞাপন, স্প্যাম বা ভুয়া তথ্য</li><li>কারও ব্যক্তিগত ছবি তাঁর অনুমতি ছাড়া দেওয়া, বিশেষ করে শিশুদের</li></ul>
+<h4>মডারেশন</h4><p>সব আপলোড অ্যাডমিন দেখে অনুমোদন দেন। নিয়ম না মানলে কনটেন্ট বাদ দেওয়া হতে পারে এবং বারবার ভুল করলে অ্যাকাউন্ট বন্ধ হতে পারে। আপত্তিকর কিছু দেখলে আমাদের জানান: <a href="mailto:${MAIL}">${MAIL}</a></p>`},
+privacy:{t:"গোপনীয়তা নীতি",h:`<p>আপনার তথ্যের গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ। এই নীতিতে বলা আছে আমরা কী তথ্য নিই এবং কীভাবে ব্যবহার করি।</p>
+<h4>কী তথ্য নিই</h4><ul><li>অ্যাকাউন্ট খুললে বা লগ ইন করলে আপনার নাম, ইমেইল ও প্রোফাইল ছবি (লগ ইন পদ্ধতি অনুযায়ী)</li><li>আপনার আপলোড করা ছবি, ভিডিও ও তার বিবরণ</li><li>ভোট ও সেভ করা ছবির তথ্য</li><li>ডোনেশন দিলে পেমেন্টের মাধ্যম, ট্রানজেকশন আইডি, যে নাম্বার থেকে পাঠিয়েছেন সেটি ও পরিমাণ (শুধু পেমেন্ট যাচাইয়ের জন্য)</li><li>থিম পছন্দের মতো সেটিং, যা আপনার ব্রাউজারে জমা থাকে</li></ul>
+<h4>কীভাবে ব্যবহার করি</h4><ul><li>সাইট চালু রাখতে এবং আপনার প্রোফাইল, আপলোড ও সেভ করা ছবি দেখাতে</li><li>ভোটের হিসাব রাখতে এবং অপব্যবহার ঠেকাতে</li></ul>
+<h4>তথ্য শেয়ার</h4><p>আপনার ব্যক্তিগত তথ্য আমরা বিক্রি করি না। সাইট চালানোর জন্য ডেটাবেস ও হোস্টিং সেবাদাতার (যেমন Supabase, Vercel) সার্ভারে তথ্য জমা থাকে। আইনি প্রয়োজন ছাড়া অন্য কাউকে দেওয়া হয় না।</p>
+<h4>আপনার অধিকার</h4><p>নিজের আপলোড বা অ্যাকাউন্ট মুছে ফেলার অনুরোধ করতে চাইলে আমাদের জানান: <a href="mailto:${MAIL}">${MAIL}</a></p>
+<p>পাবলিক পেজে আপনার আপলোড করা ছবি ও আপনার দেওয়া নাম সবাই দেখতে পারেন, তাই আপলোডের আগে ভেবে নিন।</p>`},
+terms:{t:"সেবার শর্তাবলী",h:`<p>এই সাইট ব্যবহার করলে আপনি নিচের শর্তগুলো মেনে নিচ্ছেন বলে ধরা হবে।</p>
+<h4>১. ব্যবহার</h4><p>সাইটটি সবার জন্য বিনামূল্যে। অবৈধ বা ক্ষতিকর কাজে এটি ব্যবহার করা যাবে না।</p>
+<h4>২. আপনার আপলোড</h4><ul><li>আপনি যা আপলোড করছেন তার অধিকার বা অনুমতি আপনার আছে, এটা নিশ্চিত করতে হবে</li><li>আপলোড করে আপনি এই সাইটে তা দেখানোর অনুমতি দিচ্ছেন। মালিকানা আপনারই থাকবে</li><li>গাইডলাইন না মানলে যেকোনো কনটেন্ট সরিয়ে দেওয়ার অধিকার আমাদের আছে</li></ul>
+<h4>৩. ডোনেশন</h4><p>"Buy us a coffee" সম্পূর্ণ স্বেচ্ছায় দেওয়া সহায়তা। এক কাপ কফি ২০ টাকা। পেমেন্ট ফেরতযোগ্য নয় এবং এর বিনিময়ে কোনো বিশেষ সুবিধা পাওয়া যায় না।</p><h4>৪. অ্যাকাউন্ট</h4><p>নিজের অ্যাকাউন্টের নিরাপত্তা আপনার দায়িত্ব। নিয়ম ভাঙলে অ্যাকাউন্ট বন্ধ করা হতে পারে।</p>
+<h4>৫. দায়মুক্তি</h4><p>সাইটটি "যেমন আছে" সেভাবে দেওয়া হয়। কনটেন্টের ভুল, বিঘ্ন বা তথ্য হারানোর জন্য আমরা দায়ী থাকব না। ব্যবহারকারীদের দেওয়া কনটেন্টের দায় সংশ্লিষ্ট ব্যবহারকারীর।</p>
+<h4>৬. পরিবর্তন</h4><p>এই শর্তাবলী সময়ে সময়ে বদলাতে পারে। পরিবর্তনের পরও সাইট ব্যবহার করলে নতুন শর্ত মেনে নেওয়া হবে।</p>`},
+copy:{t:"কপিরাইট নীতি",h:`<p>আমরা সৃষ্টিশীল মানুষের কাজকে সম্মান করি।</p>
+<h4>মালিকানা</h4><p>প্রতিটি ছবি ও ভিডিওর কপিরাইট তার নির্মাতার। অনুমতি ছাড়া অন্য কোথাও কপি, বিক্রি বা নিজের নামে ব্যবহার করা যাবে না।</p>
+<h4>আপলোডকারীর দায়িত্ব</h4><p>শুধু নিজের তোলা বা অনুমতিপ্রাপ্ত কনটেন্ট আপলোড করুন।</p>
+<h4>অভিযোগ জানাতে</h4><p>আপনার কাজ অনুমতি ছাড়া এখানে থাকলে আমাদের ইমেইল করুন: <a href="mailto:${MAIL}">${MAIL}</a>। সঙ্গে দিন:</p>
+<ul><li>আপনার নাম ও যোগাযোগের মাধ্যম</li><li>যে কনটেন্টে আপত্তি, তার লিংক</li><li>কাজটি যে আপনার, তার প্রমাণ বা বিবরণ</li></ul><p>যাচাই করে দ্রুত ব্যবস্থা নেওয়া হবে।</p>`},
+contact:{t:"যোগাযোগ",h:`<p>প্রশ্ন, পরামর্শ বা অভিযোগ থাকলে আমাদের জানান।</p>
+<h4>ইমেইল</h4><p><a href="mailto:${MAIL}">${MAIL}</a></p>
+<h4>যেসব বিষয়ে লিখতে পারেন</h4><ul><li>ছবি বা ভিডিও সরানোর অনুরোধ</li><li>কপিরাইট বা আপত্তিকর কনটেন্টের অভিযোগ</li><li>অ্যাকাউন্টের সমস্যা</li><li>সাইটের জন্য নতুন আইডিয়া</li></ul>`}
+};
+var d=document.getElementById('pgd');
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-pg]'); if(!a) return;
+  e.preventDefault();
+  var p=P[a.getAttribute('data-pg')]; if(!p) return;
+  document.getElementById('pgt').textContent=p.t;
+  document.getElementById('pgb').innerHTML=p.h;
+  d.showModal(); d.scrollTop=0;
+});
+})();
+</script>
 <dialog id="shd"><h3>শেয়ার করুন</h3><div class="shl"><a class="btn" id="sw" target="_blank" rel="noopener">WhatsApp-এ পাঠান</a><a class="btn" id="sf" target="_blank" rel="noopener">Facebook-এ শেয়ার</a><button type="button" class="btn ghost" id="sc">লিংক কপি</button></div><button type="button" class="btn ghost" onclick="this.closest('dialog').close()">বন্ধ করুন</button></dialog>
 <dialog id="vt"><h3>ভোট দিন</h3><p id="vtn" class="empty"></p><p>এই ছবিটা কোন বিভাগে সেরা? প্রতি বিভাগে প্রতি বছর একটি ভোট, পরে বদলানো যাবে।</p><div class="shl"><button type="button" class="btn" id="vp">🎨 সেরা প্রতিমা</button><button type="button" class="btn" id="vm">🏛️ সেরা মণ্ডপ</button></div><button type="button" class="btn ghost" id="vx">বন্ধ করুন</button></dialog>
 <dialog id="pv"><div id="pvb"></div><button type="button" class="btn ghost" style="margin-top:10px" onclick="this.closest('dialog').close()">বন্ধ করুন</button></dialog>
@@ -302,11 +427,11 @@ async function onUser(u){
     await sb.from("profiles").upsert({id:u.id,email:u.email,name:md.full_name||md.name||null,avatar:md.avatar_url||md.picture||null,last_login:new Date().toISOString()});
     var a=await sb.from("admins").select("user_id").eq("user_id",u.id).maybeSingle();isAdmin=!!a.data;if(isAdmin||u.email=="lipisaha854@gmail.com"){try{localStorage.setItem("bp_ignore","1");var vid=localStorage.getItem("bp_vid");if(vid)sb.from("visitors").delete().eq("visitor_id",vid).then(function(){})}catch(e){}}var sv=await sb.from("saves").select("post_id").eq("user_id",u.id);saved={};(sv.data||[]).forEach(function(s){saved[s.post_id]=1});paintSaves()}
   $("adm").hidden=!isAdmin}
-var tab="pend",TABS={pend:"অপেক্ষমাণ",all:"সব পোস্ট",rep:"রিপোর্ট",users:"ইউজার",vis:"ভিজিটর",set:"সেটিংস"};
+var tab="pend",TABS={pend:"অপেক্ষমাণ",all:"সব পোস্ট",rep:"রিপোর্ট",users:"ইউজার",vis:"ভিজিটর",don:"ডোনেশন",set:"সেটিংস"};
 function atab(t){tab=t;var r=$("at");r.innerHTML="";
   Object.keys(TABS).forEach(function(k){var b=document.createElement("button");b.textContent=TABS[k];if(k==t)b.className="on";b.onclick=function(){atab(k)};r.appendChild(b)});
   var c=$("ab");c.textContent="লোড হচ্ছে...";
-  if(t=="users")users(c);else if(t=="vis")visitors(c);else if(t=="rep")reports(c);else if(t=="set")settings(c);else plist(c,t=="pend")}
+  if(t=="users")users(c);else if(t=="vis")visitors(c);else if(t=="don")donations(c);else if(t=="rep")reports(c);else if(t=="set")settings(c);else plist(c,t=="pend")}
 function mk(t,c,fn){var b=document.createElement("button");b.type="button";b.textContent=t;b.className="btn sm "+c;b.onclick=fn;return b}
 async function plist(c,pend){
   var q=sb.from("posts").select("*").order("created_at",{ascending:false}).limit(100);
@@ -469,6 +594,88 @@ async function openArtist(name){
   await mineFor(ps);var g=$("artg");g.innerHTML="";
   ps.forEach(function(p){g.appendChild(card(p))})}
 fillDist();ldivs();tabs();loadSettings();loadBoard();
+</script>
+
+<dialog id="cof"><h3 id="cft">☕ Buy us a coffee</h3><div class="cb" id="cfb"></div></dialog>
+<script>
+(function(){
+var NUM={bkash:"01964496575",nagad:"01626073086"},NAME={bkash:"বিকাশ",nagad:"নগদ"},PRICE=20;
+var st={n:1,m:"bkash",nm:"",step:1};
+var d=document.getElementById("cof"),B=document.getElementById("cfb"),T=document.getElementById("cft");
+function bn(x){try{return Number(x).toLocaleString("bn-BD")}catch(e){return x}}
+function E(x){return String(x==null?"":x).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function open_(){
+  if(!window.user){try{sessionStorage.setItem("bp_don",String(Date.now()))}catch(e){}
+    if(typeof needLogin==="function")needLogin();return}
+  st={n:1,m:"bkash",nm:((user.user_metadata||{}).full_name||(user.user_metadata||{}).name||""),step:1};
+  render();if(!d.open)d.showModal();d.scrollTop=0}
+function step1(){
+  T.textContent="☕ Buy us a coffee";
+  B.innerHTML='<p>সাইটটা ভালো লাগলে আমাদের এক কাপ কফি খাওয়াতে পারেন ☕ আপনার ছোট্ট এই সহায়তাই আমাদের সাইটটা চালু রাখতে আর নতুন কিছু করতে উৎসাহ দেয়। অনেক ধন্যবাদ! 🙏</p><p class="who">লগইন: '+E(user.email||"")+'</p>'
+  +'<label style="text-align:center">কয় কাপ?</label><div class="stp"><button type="button" id="cm" aria-label="কমান">−</button><b id="cn">'+bn(st.n)+'</b><button type="button" id="cp" aria-label="বাড়ান">+</button></div>'
+  +'<div class="chips">'+[1,2,5,10].map(function(x){return'<button type="button" data-q="'+x+'" class="'+(st.n==x?"on":"")+'">'+bn(x)+'</button>'}).join("")+'</div>'
+  +'<div class="tot">মোট: <b>৳'+bn(st.n*PRICE)+'</b></div>'
+  +'<label style="text-align:center">পেমেন্ট মাধ্যম</label><div class="mth"><button type="button" data-m="bkash" class="'+(st.m=="bkash"?"on":"")+'">বিকাশ</button><button type="button" data-m="nagad" class="'+(st.m=="nagad"?"on":"")+'">নগদ</button></div>'
+  +'<label for="cnm">আপনার নাম (ঐচ্ছিক)</label><input type="text" id="cnm" maxlength="60" value="'+E(st.nm)+'" placeholder="নাম">'
+  +'<div class="bt"><button type="button" class="btn ghost" id="cx">বন্ধ করুন</button><button type="button" class="btn" id="cgo">পরের ধাপ →</button></div>';
+  function upd(n){st.n=Math.max(1,Math.min(500,n));st.nm=document.getElementById("cnm").value;render()}
+  document.getElementById("cm").onclick=function(){upd(st.n-1)};
+  document.getElementById("cp").onclick=function(){upd(st.n+1)};
+  [].forEach.call(B.querySelectorAll("[data-q]"),function(b){b.onclick=function(){upd(+b.dataset.q)}});
+  [].forEach.call(B.querySelectorAll("[data-m]"),function(b){b.onclick=function(){st.m=b.dataset.m;upd(st.n)}});
+  document.getElementById("cx").onclick=function(){d.close()};
+  document.getElementById("cgo").onclick=function(){st.nm=document.getElementById("cnm").value.trim();st.step=2;render()}}
+function step2(){
+  var amt=st.n*PRICE,m=NAME[st.m];
+  T.textContent="পেমেন্ট করুন";
+  B.innerHTML='<p>'+bn(st.n)+' কাপ কফি · মোট <b style="color:var(--gold)">৳'+bn(amt)+'</b> · '+m+'</p>'
+  +'<div class="num"><span id="cnum">'+NUM[st.m]+'</span><button type="button" class="btn sm ghost" id="ccp">কপি</button></div>'
+  +'<ol><li>'+m+' অ্যাপ খুলে <b>Send Money</b> বেছে নিন</li><li>উপরের নাম্বারে ঠিক ৳'+bn(amt)+' পাঠান</li><li>পাঠানো হলে যে <b>Transaction ID (TrxID)</b> পাবেন, নিচে লিখুন</li></ol>'
+  +'<label for="ctx">Transaction ID *</label><input type="text" id="ctx" maxlength="30" autocapitalize="characters" autocomplete="off" placeholder="যেমন: 8N7A6D5EE7">'
+  +'<label for="csn">যে নাম্বার থেকে পাঠিয়েছেন *</label><input type="tel" id="csn" maxlength="14" inputmode="numeric" placeholder="01XXXXXXXXX">'
+  +'<p class="er" id="cer"></p><div class="bt"><button type="button" class="btn ghost" id="cbk">← পেছনে</button><button type="button" class="btn" id="csb">জমা দিন</button></div>';
+  document.getElementById("ccp").onclick=function(){var v=NUM[st.m],b=this;
+    function ok(){b.textContent="কপি হয়েছে ✓";setTimeout(function(){b.textContent="কপি"},1500)}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(ok,function(){});else{var t=document.createElement("textarea");t.value=v;document.body.appendChild(t);t.select();try{document.execCommand("copy");ok()}catch(e){}t.remove()}};
+  document.getElementById("cbk").onclick=function(){st.step=1;render()};
+  document.getElementById("csb").onclick=submit}
+async function submit(){
+  var er=document.getElementById("cer"),btn=document.getElementById("csb");
+  var trx=document.getElementById("ctx").value.trim().toUpperCase(),sn=document.getElementById("csn").value.replace(/[\s-]/g,"").replace(/^\+?88/,"");
+  if(!/^[A-Z0-9]{6,20}$/.test(trx)){er.textContent="সঠিক Transaction ID লিখুন (শুধু ইংরেজি অক্ষর ও সংখ্যা)।";return}
+  if(!/^01[3-9][0-9]{8}$/.test(sn)){er.textContent="সঠিক মোবাইল নাম্বার লিখুন (১১ ডিজিট)।";return}
+  if(!window.user){er.textContent="আবার লগইন করুন।";return}
+  btn.disabled=true;er.textContent="জমা হচ্ছে...";
+  var r=await sb.from("donations").insert({user_id:user.id,email:user.email,name:st.nm||null,coffees:st.n,amount:st.n*PRICE,method:st.m,trx_id:trx,sender_number:sn});
+  if(r.error){btn.disabled=false;er.textContent=(r.error.code=="23505")?"এই Transaction ID আগেই জমা দেওয়া হয়েছে।":"জমা হয়নি। একটু পরে আবার চেষ্টা করুন।";return}
+  st.step=3;render()}
+function step3(){
+  T.textContent="ধন্যবাদ! ☕❤️";
+  B.innerHTML='<p>আপনার ডোনেশনের তথ্য পেয়েছি। আমরা TrxID মিলিয়ে দেখে নিশ্চিত করব। আপনার ভালোবাসার জন্য অনেক ধন্যবাদ! 🙏</p><div class="bt"><button type="button" class="btn" id="cdn">বন্ধ করুন</button></div>';
+  document.getElementById("cdn").onclick=function(){d.close()}}
+function render(){st.step==1?step1():st.step==2?step2():step3()}
+document.addEventListener("click",function(e){var a=e.target.closest("#cofb");if(!a)return;e.preventDefault();open_()});
+window.addEventListener("load",function(){
+  if(typeof sb==="undefined")return;
+  sb.auth.onAuthStateChange(function(_e,sess){
+    if(!sess||!sess.user)return;var t=0;try{t=+sessionStorage.getItem("bp_don")||0;if(t)sessionStorage.removeItem("bp_don")}catch(e){}
+    if(t&&Date.now()-t<600000)setTimeout(open_,900)})});
+})();
+async function donations(c){
+  var r=await sb.from("donations").select("*").order("created_at",{ascending:false}).limit(200);
+  if(r.error){c.textContent=r.error.message;return}
+  var tot=0;r.data.forEach(function(x){if(x.status=="confirmed")tot+=x.amount});
+  c.innerHTML="<p>মোট "+r.data.length+"টি · নিশ্চিত ৳"+tot+"</p>";
+  if(!r.data.length){c.innerHTML+='<p class="empty">এখনো কোনো ডোনেশন নেই।</p>';return}
+  var L={pending:"⏳ যাচাই বাকি",confirmed:"✅ নিশ্চিত",rejected:"❌ বাতিল"};
+  r.data.forEach(function(x){
+    var e=document.createElement("div");e.className="dn";
+    e.innerHTML="<b>"+(L[x.status]||x.status)+"</b> · ৳"+x.amount+" ("+x.coffees+" কাপ) · "+(x.method=="bkash"?"বিকাশ":"নগদ")+"<br>"+E(x.name||"")+" "+E(x.email||"")+"<br>TrxID: <b>"+E(x.trx_id)+"</b> · "+E(x.sender_number)+"<br><small class=\"empty\">"+new Date(x.created_at).toLocaleString("bn-BD")+"</small>";
+    var row=document.createElement("div");row.className="r";
+    [["confirmed","নিশ্চিত করুন",""],["rejected","বাতিল","danger"]].forEach(function(a){
+      if(x.status==a[0])return;
+      row.appendChild(mk(a[1],a[2],async function(){var u=await sb.from("donations").update({status:a[0]}).eq("id",x.id);if(u.error){alert(u.error.message);return}atab("don")}))});
+    e.appendChild(row);c.appendChild(e)})}
 </script>
 </body>
 </html>
