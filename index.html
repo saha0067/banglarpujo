@@ -306,15 +306,12 @@ $("ax").onclick=function(){$("adp").close()};
 var DIV=[["ঢাকা","ঢাকা,গাজীপুর,নারায়ণগঞ্জ,নরসিংদী,মানিকগঞ্জ,মুন্সিগঞ্জ,কিশোরগঞ্জ,টাঙ্গাইল,ফরিদপুর,মাদারীপুর,শরীয়তপুর,রাজবাড়ী,গোপালগঞ্জ"],["চট্টগ্রাম","চট্টগ্রাম,কক্সবাজার,কুমিল্লা,ফেনী,ব্রাহ্মণবাড়িয়া,নোয়াখালী,চাঁদপুর,লক্ষ্মীপুর,খাগড়াছড়ি,রাঙ্গামাটি,বান্দরবান"],["রাজশাহী","রাজশাহী,বগুড়া,জয়পুরহাট,নওগাঁ,নাটোর,চাঁপাইনবাবগঞ্জ,পাবনা,সিরাজগঞ্জ"],["খুলনা","খুলনা,বাগেরহাট,সাতক্ষীরা,যশোর,নড়াইল,মাগুরা,ঝিনাইদহ,কুষ্টিয়া,চুয়াডাঙ্গা,মেহেরপুর"],["বরিশাল","বরিশাল,বরগুনা,ভোলা,ঝালকাঠি,পটুয়াখালী,পিরোজপুর"],["সিলেট","সিলেট,মৌলভীবাজার,হবিগঞ্জ,সুনামগঞ্জ"],["রংপুর","রংপুর,দিনাজপুর,গাইবান্ধা,কুড়িগ্রাম,লালমনিরহাট,নীলফামারী,পঞ্চগড়,ঠাকুরগাঁও"],["ময়মনসিংহ","ময়মনসিংহ,জামালপুর,শেরপুর,নেত্রকোণা"]];
 var dv=0;
 async function visitors(c){
-  var since=new Date(Date.now()-30*864e5).toISOString();
-  var r=await sb.from("visits").select("*").gte("created_at",since).order("created_at",{ascending:false}).limit(5000);
+  var r=await sb.from("visitors").select("*").order("last_seen",{ascending:false}).limit(10000);
   if(r.error){c.textContent=r.error.message;return}
-  var d=r.data,day=function(t){return new Date(t).toLocaleDateString("en-CA")},today=day(Date.now());
-  var all={},anon={},td={},tv=0,dev={},ref={},days={};
-  d.forEach(function(v){all[v.visitor_id]=1;if(!v.user_id)anon[v.visitor_id]=1;var k=day(v.created_at);(days[k]=days[k]||{})[v.visitor_id]=1;days[k].n=(days[k].n||0)+1;if(k==today){td[v.visitor_id]=1;tv++}dev[v.device||"?"]=(dev[v.device||"?"]||0)+1;var h="সরাসরি";try{if(v.referrer)h=new URL(v.referrer).hostname}catch(e){}ref[h]=(ref[h]||0)+1});
-  var n=function(o){return Object.keys(o).filter(function(k){return k!="n"}).length};
+  var d=r.data,day=function(t){return new Date(t).toLocaleDateString("en-CA")},today=day(Date.now()),nt=0,at=0,ret=0,anon=0,dev={},ref={},days={};
+  d.forEach(function(v){var f=day(v.first_seen);if(f==today)nt++;if(day(v.last_seen)==today)at++;if(v.visits>1)ret++;if(!v.user_id)anon++;dev[v.device||"?"]=(dev[v.device||"?"]||0)+1;var h="সরাসরি";try{if(v.referrer)h=new URL(v.referrer).hostname}catch(e){}ref[h]=(ref[h]||0)+1;days[f]=(days[f]||0)+1});
   var top=function(o){return Object.keys(o).sort(function(a,b){return o[b]-o[a]}).slice(0,5).map(function(k){return esc(k)+" ("+o[k]+")"}).join(", ")||"-"};
-  c.innerHTML='<p class="empty">গত ৩০ দিনের হিসাব। নাম বা ইমেইল শুধু Google লগইনকারীদের পাওয়া যায়; বাকিরা বেনামী ভিজিটর।</p><div class="vs"><div><b>'+tv+'</b>আজকের ভিজিট</div><div><b>'+n(td)+'</b>আজ আলাদা ভিজিটর</div><div><b>'+d.length+'</b>মোট ভিজিট</div><div><b>'+n(all)+'</b>মোট আলাদা ভিজিটর</div><div><b>'+n(anon)+'</b>লগইন ছাড়া ভিজিটর</div></div><p><b>ডিভাইস:</b> '+top(dev)+'</p><p><b>কোথা থেকে এসেছে:</b> '+top(ref)+'</p><h3>দিনভিত্তিক</h3>'+Object.keys(days).sort().reverse().slice(0,14).map(function(k){return"<p>"+k+": "+days[k].n+" ভিজিট, "+n(days[k])+" জন</p>"}).join("");
+  c.innerHTML='<p class="empty">একই ডিভাইস বা ব্রাউজার যতবারই ঢুকুক, এখানে ১ জন ধরা হয়। ব্রাউজারের ডেটা মুছলে বা অন্য ব্রাউজার/প্রাইভেট ট্যাব থেকে ঢুকলে নতুন ধরা হবে।</p><div class="vs"><div><b>'+d.length+'</b>মোট আলাদা ভিজিটর</div><div><b>'+nt+'</b>আজ নতুন</div><div><b>'+at+'</b>আজ সক্রিয়</div><div><b>'+ret+'</b>আবার ফিরে এসেছেন</div><div><b>'+anon+'</b>লগইন ছাড়া</div></div><p><b>ডিভাইস:</b> '+top(dev)+'</p><p><b>কোথা থেকে এসেছে:</b> '+top(ref)+'</p><h3>দিনে কতজন নতুন</h3>'+Object.keys(days).sort().reverse().slice(0,14).map(function(k){return"<p>"+k+": "+days[k]+" জন</p>"}).join("");
 }
 function paintSaves(){[].forEach.call(document.querySelectorAll(".sv"),function(b){var on=saved[b.dataset.id];b.textContent=on?"🔖 সেভ করা":"🔖 সেভ";b.classList.toggle("on",!!on)})}
 async function shareP(p){var u=p.slug?location.origin+"/p/"+p.slug:location.origin+location.pathname+"?post="+p.id,t="🪔 "+p.puja+" "+p.year+(p.district?" · "+p.district:"")+" | বাংলার পুজো";
@@ -390,7 +387,7 @@ document.addEventListener("click",function(e){var t=e.target;if(t.tagName=="IMG"
 $("lb").onclick=function(){this.close()};
 (function(){var v=null,k="bp_vid";try{v=localStorage.getItem(k);if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Math.random()).slice(2)+Date.now();localStorage.setItem(k,v)}}catch(e){v=v||"na"}
 try{if(sessionStorage.getItem("bp_v"))return;sessionStorage.setItem("bp_v","1")}catch(e){}
-var ua=navigator.userAgent;sb.from("visits").insert({visitor_id:v,referrer:document.referrer||null,device:/Mobi|Android|iPhone/i.test(ua)?"মোবাইল":"কম্পিউটার",ua:ua.slice(0,300),lang:navigator.language,screen:screen.width+"x"+screen.height}).then(function(){})})();
+var ua=navigator.userAgent;sb.rpc("track_visit",{vid:v,ref:document.referrer||null,dev:/Mobi|Android|iPhone/i.test(ua)?"মোবাইল":"কম্পিউটার",ua_:ua,lang_:navigator.language,scr:screen.width+"x"+screen.height}).then(function(){})})();
 (function(){var t=document.documentElement.getAttribute("data-theme")||"dark";
 function ap(){document.documentElement.setAttribute("data-theme",t);$("th").textContent=t=="light"?"🌙":"☀️";$("th").setAttribute("aria-label",t=="light"?"ডার্ক মোড":"লাইট মোড")}
 $("th").onclick=function(){t=t=="light"?"dark":"light";try{localStorage.setItem("bp_theme",t)}catch(e){}ap()};ap()})();
