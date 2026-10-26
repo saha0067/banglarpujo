@@ -3,28 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFF8EF">
 <title>বাংলার পুজো</title>
 <meta name="description" content="মন ভরে বাংলার ঠাকুর দেখবে তুমিও">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;800&display=swap">
-<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("bp_theme")||"dark")}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&family=Baloo+Da+2:wght@500;600;700;800&family=Galada&display=swap">
+<script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("bp_theme")||"light")}catch(e){}</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <style>
 :root{--night:#12132a;--panel:#1e2142;--line:#33376a;--gold:#f5a623;--red:#e0342b;--text:#f3eee4;--dim:#a9abc9;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--night);color:var(--text);font:400 1rem/1.6 "Anek Bangla",system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--night);color:var(--text);font:400 1rem/1.6 "Noto Sans Bengali",system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom,0px)}
 .top{position:sticky;top:0;z-index:20;background:rgba(14,15,36,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 4px}
-.logo{display:flex;align-items:center;gap:10px;font:800 1.4rem "Noto Serif Bengali",serif;color:var(--gold);text-decoration:none}
+.logo{display:flex;align-items:center;gap:10px;font:800 1.4rem "Baloo Da 2",serif;color:var(--gold);text-decoration:none}
 .lg{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
 .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.btn{background:var(--gold);color:#2a1a00;border:0;border-radius:999px;padding:9px 18px;font:600 .95rem "Anek Bangla",sans-serif;cursor:pointer}
+.btn{background:var(--gold);color:#2a1a00;border:0;border-radius:999px;padding:9px 18px;font:600 .95rem "Noto Sans Bengali",sans-serif;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
 .btn.danger{background:var(--red);color:#fff}
 .btn:disabled{opacity:.6}
 .sm{padding:4px 12px;font-size:.85rem}
 button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .nav{display:flex;gap:6px;overflow-x:auto;padding:6px 16px 10px;scrollbar-width:none}
-.nav button{flex:none;background:transparent;color:var(--dim);border:0;border-radius:999px;padding:7px 16px;font:600 .98rem "Anek Bangla",sans-serif;cursor:pointer;white-space:nowrap}
+.nav button{flex:none;background:transparent;color:var(--dim);border:0;border-radius:999px;padding:7px 16px;font:600 .98rem "Noto Sans Bengali",sans-serif;cursor:pointer;white-space:nowrap}
 .nav button.on{background:var(--gold);color:#2a1a00}
 .nav .cta{background:var(--red);color:#fff}.upnote{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;width:calc(100% - 32px);max-width:1068px;margin:12px auto 0;padding:12px 16px;border:1px dashed var(--gold);border-radius:14px;background:rgba(245,166,35,.1)}.upnote p{margin:0;flex:1 1 220px}.upnote b{color:var(--gold)}.vs{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:8px 0}.vs div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.vs b{display:block;font-size:1.4rem;color:var(--gold)}
 .par{height:12px;background:repeating-linear-gradient(90deg,var(--red) 0 22px,#f3eee4 22px 26px,var(--red) 26px 48px,var(--gold) 48px 52px)}
@@ -34,18 +35,18 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .lamps span{width:1px;height:var(--h);background:var(--gold);position:relative}
 .lamps span::after{content:"";position:absolute;left:-9px;bottom:-26px;width:19px;height:26px;border-radius:50% 50% 40% 40%;background:radial-gradient(circle at 50% 35%,#ffe08a,var(--gold) 55%,#b86a00);box-shadow:0 0 22px 6px rgba(245,166,35,.55)}
 .hl{width:120px;height:120px;margin:0 auto 10px;display:block;box-shadow:0 0 30px rgba(245,166,35,.5)}
-.hero h1{font:800 clamp(3rem,14vw,6rem)/1.15 "Noto Serif Bengali",serif;margin:0;background:linear-gradient(180deg,#ffe3a0,#f5a623 60%,#d9822b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font:800 clamp(3rem,14vw,6rem)/1.15 "Baloo Da 2",serif;margin:0;background:linear-gradient(180deg,#ffe3a0,#f5a623 60%,#d9822b);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{color:var(--dim);max-width:28ch;margin:12px auto 0;font-size:1.2rem}
 .cta2{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
 .wrap{max-width:1100px;margin:0 auto;padding:6px 18px 40px}
-h2{font:800 1.5rem "Noto Serif Bengali",serif;margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+h2{font:800 1.5rem "Baloo Da 2",serif;margin:26px 0 12px;display:flex;align-items:center;gap:10px}
 h2::before{content:"";width:6px;height:1.3em;border-radius:3px;background:repeating-linear-gradient(var(--red) 0 6px,#f3eee4 6px 8px)}
 .row{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px}
-.row button{flex:none;border:1px solid var(--gold);background:var(--panel);color:var(--text);padding:9px 16px;border-radius:999px;font:600 1rem "Anek Bangla",sans-serif;cursor:pointer}
+.row button{flex:none;border:1px solid var(--gold);background:var(--panel);color:var(--text);padding:9px 16px;border-radius:999px;font:600 1rem "Noto Sans Bengali",sans-serif;cursor:pointer}
 .row.p button{border-color:var(--line);padding:5px 14px;font-weight:400}
 .row button.on{background:var(--gold);color:#2a1a00;border-color:var(--gold)}
 .pc{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
-.pc button{border:1px solid var(--line);background:linear-gradient(160deg,#2a2d5e,#1a1c3a);color:var(--text);border-radius:16px;padding:18px 8px;font:600 1.05rem "Anek Bangla",sans-serif;cursor:pointer;text-align:center;transition:.2s}
+.pc button{border:1px solid var(--line);background:linear-gradient(160deg,#2a2d5e,#1a1c3a);color:var(--text);border-radius:16px;padding:18px 8px;font:600 1.05rem "Noto Sans Bengali",sans-serif;cursor:pointer;text-align:center;transition:.2s}
 .pc button:hover,.pc button.on{border-color:var(--gold);transform:translateY(-2px)}
 .pc button.on{background:linear-gradient(160deg,#5a3d12,#2a1d08)}
 .pc small{display:block;color:var(--dim);font-weight:400;font-size:.85rem}
@@ -69,7 +70,7 @@ h2::before{content:"";width:6px;height:1.3em;border-radius:3px;background:repeat
 footer{text-align:center;color:var(--dim);padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);font-size:.9rem}
 dialog{background:var(--panel);color:var(--text);border:1px solid var(--gold);border-radius:16px;padding:20px;width:min(92vw,440px)}
 dialog::backdrop{background:rgba(5,6,20,.75)}
-dialog h3{font:800 1.5rem "Noto Serif Bengali",serif;margin:0 0 12px;color:var(--gold)}
+dialog h3{font:800 1.5rem "Baloo Da 2",serif;margin:0 0 12px;color:var(--gold)}
 dialog.big{width:min(96vw,760px);max-height:90vh;overflow:auto}
 form{display:flex;flex-direction:column;gap:12px}
 label{display:flex;flex-direction:column;gap:4px;color:var(--dim)}
@@ -80,19 +81,19 @@ input,select,textarea{background:var(--night);color:var(--text);border:1px solid
 .outb{display:none}
 .pf{display:flex;gap:16px;align-items:center;margin-top:20px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;flex-wrap:wrap}
 .pf img{width:84px;height:84px;border-radius:50%;border:3px solid var(--gold);object-fit:cover}
-.pf h3{margin:0;font:800 1.4rem "Noto Serif Bengali",serif;color:var(--gold)}
+.pf h3{margin:0;font:800 1.4rem "Baloo Da 2",serif;color:var(--gold)}
 .stats{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0}
 .stats span{text-align:center;color:var(--dim);font-size:.85rem}
 .stats b{display:block;font-size:1.3rem;color:var(--text)}
 body{background:linear-gradient(180deg,#14162f,#0c0d20) fixed}
 h2{font-size:1.45rem;letter-spacing:.2px}
 .card{box-shadow:0 10px 26px rgba(0,0,0,.35)}
-.b h3 small{color:var(--gold);font:600 .9rem "Anek Bangla",sans-serif}
+.b h3 small{color:var(--gold);font:600 .9rem "Noto Sans Bengali",sans-serif}
 .dt{color:var(--dim);font-size:.92rem;margin:2px 0}
 dialog{max-height:92vh;overflow:auto}
 .gcard{max-width:400px;margin:28px auto 0;background:rgba(30,33,66,.72);border:1px solid rgba(245,166,35,.5);border-radius:22px;padding:24px 22px;backdrop-filter:blur(8px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.gcard h3{margin:0 0 16px;font:800 1.35rem "Noto Serif Bengali",serif;color:var(--gold);text-align:center}
-.gbtn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;background:#fff;color:#1f1f1f;border:0;border-radius:999px;padding:13px 18px;font:600 1.05rem "Anek Bangla",sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.gcard h3{margin:0 0 16px;font:800 1.35rem "Baloo Da 2",serif;color:var(--gold);text-align:center}
+.gbtn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;background:#fff;color:#1f1f1f;border:0;border-radius:999px;padding:13px 18px;font:600 1.05rem "Noto Sans Bengali",sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 .gcard ul{list-style:none;padding:0;margin:18px 0 0;color:var(--dim);text-align:left}
 .gcard li{padding:3px 0}.gcard li::before{content:"✓  ";color:var(--gold);font-weight:700}
 .warn{display:none;margin-top:14px;padding:10px 12px;border-radius:12px;background:rgba(224,52,43,.18);color:#ffb4ac;font-size:.9rem;text-align:left}
@@ -105,10 +106,10 @@ dialog{max-height:92vh;overflow:auto}
 :root{--navbg:rgba(14,15,36,.97)}
 body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
 .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:space-around;align-items:flex-end;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));background:var(--navbg);border-top:1px solid var(--line);backdrop-filter:blur(12px)}
-.bnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--dim);font:600 .74rem "Anek Bangla",sans-serif;padding:6px 0;cursor:pointer}
+.bnav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--dim);font:600 .74rem "Noto Sans Bengali",sans-serif;padding:6px 0;cursor:pointer}
 .bnav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .bnav button.on{color:var(--gold)}
-.bnav .plus{flex:none;width:58px;height:58px;margin:-28px 4px 0;padding:0;border-radius:50%;background:linear-gradient(135deg,#f5a623,#e0342b);color:#fff;font:400 2.2rem/1 "Anek Bangla",sans-serif;justify-content:center;border:4px solid var(--night);box-shadow:0 6px 18px rgba(224,52,43,.45)}
+.bnav .plus{flex:none;width:58px;height:58px;margin:-28px 4px 0;padding:0;border-radius:50%;background:linear-gradient(135deg,#f5a623,#e0342b);color:#fff;font:400 2.2rem/1 "Noto Sans Bengali",sans-serif;justify-content:center;border:4px solid var(--night);box-shadow:0 6px 18px rgba(224,52,43,.45)}
 :root[data-theme=light]{--night:#fbf6ee;--panel:#fff;--line:#e6d9c4;--text:#2b2118;--dim:#7a6a58;--gold:#d98200;--navbg:rgba(255,250,240,.97);color-scheme:light}
 [data-theme=light] body{background:linear-gradient(180deg,#fff8ec,#f6ead6) fixed}
 [data-theme=light] .top{background:rgba(255,250,240,.94)}
@@ -122,6 +123,166 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
 .ac2{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.ac2 button{background:transparent;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font:inherit;font-size:.88rem;cursor:pointer}.ac2 button.on{color:var(--gold);border-color:var(--gold)}
 .lbr{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px}.lbi2{position:relative;flex:none;width:150px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0 0 8px;text-align:left;font:inherit;cursor:pointer;overflow:hidden}.lbi2 img,.lbi2 video{width:100%;height:110px;object-fit:cover;display:block}.lbi2 b{position:absolute;top:6px;left:6px;background:var(--gold);color:#2a1a00;border-radius:50%;width:26px;height:26px;display:grid;place-items:center}.lbi2 span,.lbi2 small{display:block;padding:4px 10px 0;font-size:.88rem}.lbi2 small{color:var(--gold)}
 .shl{display:flex;flex-direction:column;gap:10px;margin:10px 0}.shl a{text-align:center;text-decoration:none}#pv{max-height:90vh;overflow:auto}
+
+/* ===== UI/UX refresh v4 (warm festive palette) ===== */
+:root,:root[data-theme=light]{--night:#FFF8EF;--panel:#FFFFFF;--line:#F0E0CB;--text:#2B1B16;--dim:#7C6A5F;--gold:#B45309;--red:#D62839;--brand:#A31621;--soft:#FFF1DA;--ph:#EFE3D3;--glow:rgba(232,130,26,.10);--navbg:rgba(255,255,255,.9);--sh:0 10px 28px rgba(122,62,20,.10);--rad:20px;color-scheme:light}
+:root[data-theme=dark]{--night:#160E10;--panel:#231619;--line:#3B2529;--text:#FBF1E6;--dim:#BCA499;--gold:#FFC857;--red:#FF5A5F;--brand:#FFC857;--soft:rgba(255,200,87,.1);--ph:#0D0809;--glow:rgba(255,200,87,.07);--navbg:rgba(35,22,25,.88);--sh:0 12px 30px rgba(0,0,0,.35);color-scheme:dark}
+html{font-size:17px;scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body,[data-theme] body{background:radial-gradient(800px 420px at 50% -100px,var(--glow),transparent 70%),var(--night);background-attachment:fixed;color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+h2,dialog h3,.gcard h3,.card h3{font-family:"Noto Sans Bengali",sans-serif;font-weight:700}
+.top,[data-theme] .top{background:var(--navbg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:none}
+.bar{padding-bottom:8px}
+.logo{font:400 1.45rem "Galada","Baloo Da 2",serif;color:var(--brand);letter-spacing:.2px}
+.lg{width:36px;height:36px;border:2px solid var(--brand)}
+.par{height:5px;border:0;background:repeating-linear-gradient(90deg,var(--red) 0 18px,#fff 18px 21px,var(--red) 21px 39px,#F4A300 39px 42px)}
+.btn{background:linear-gradient(135deg,#EC4B3C,#C2182F);color:#fff;font-weight:600;border:0;box-shadow:0 6px 16px rgba(194,24,47,.28);transition:transform .12s,filter .2s}
+.btn.ghost,[data-theme] .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+.btn.danger{background:var(--red);color:#fff;box-shadow:none}
+.btn:hover{filter:brightness(1.06)}
+.btn:active,.bnav button:active,.ac2 button:active,.re button:active,.row button:active,#pc button:active{transform:scale(.96)}
+#th{width:38px;height:38px;padding:0;border-radius:50%;display:grid;place-items:center}
+input,select,textarea{font-size:16px;min-height:46px;border-radius:12px;background:var(--panel);color:var(--text);border:1px solid var(--line)}
+textarea{min-height:92px}
+.lamps{display:none}
+.hero,[data-theme] .hero{position:relative;isolation:isolate;overflow:hidden;padding:28px 20px 36px;border-radius:0 0 32px 32px;background:linear-gradient(135deg,#7E1425 0%,#C2262E 55%,#EE8A1C 100%);color:#fff}
+.hero::before,[data-theme] .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:url(logo.jpg) center 28%/cover;opacity:.22;filter:blur(6px);transform:scale(1.12)}
+.hl{width:100px;height:100px;border:3px solid #fff;box-shadow:0 0 0 6px rgba(255,255,255,.2),0 14px 30px rgba(0,0,0,.35)}
+.eb{display:inline-block;margin-top:14px;padding:3px 14px;border:1px solid rgba(255,255,255,.45);border-radius:99px;font-size:.82rem;color:#fff;background:rgba(255,255,255,.16)}
+.hero h1,[data-theme] .hero h1{font:400 clamp(2.7rem,13vw,4.6rem)/1.2 "Galada","Baloo Da 2",serif;margin:8px 0 0;background:none;-webkit-background-clip:border-box;background-clip:border-box;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.35)}
+.hero p,[data-theme] .hero p{max-width:30ch;margin:6px auto 0;font-size:1.05rem;color:rgba(255,255,255,.92)}
+.cta2{margin-top:18px;gap:10px}
+.hero .cta2 .btn{padding:12px 24px;font-size:.98rem;background:#fff;color:#8E1B2E;box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.hero .cta2 .btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:none}
+.upnote{margin-top:14px;gap:12px;padding:12px 14px;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:16px;background:var(--soft);font-size:.92rem}
+.upnote b{color:var(--brand)}
+.upnote .btn{padding:8px 16px;white-space:nowrap}
+.wrap{padding:6px 16px 28px;max-width:1100px}
+h2{font:400 1.55rem "Baloo Da 2",serif;margin:26px 0 12px;color:var(--text)}
+h2::before{width:5px;height:1.05em;border-radius:3px;background:linear-gradient(180deg,#F4A300,var(--red))}
+.row{gap:8px;scrollbar-width:none}
+.row::-webkit-scrollbar,#pc::-webkit-scrollbar{display:none}
+.row button,.row.p button,#pc button{flex:none;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:500 .94rem "Noto Sans Bengali",sans-serif;transition:.2s}
+.row button.on,.row.p button.on,#pc button.on{background:linear-gradient(135deg,#EC4B3C,#C2182F);border-color:transparent;color:#fff;font-weight:600}
+#pc{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.pc small{display:inline;margin-left:6px;opacity:.7;font-weight:400}
+#ldiv{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+#ldiv button{padding:16px 8px;border-radius:16px;background:var(--panel);border:1px solid var(--line);color:var(--text);font-size:1rem}
+#ldiv button.on{border-color:var(--red);background:var(--soft)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card,[data-theme] .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);overflow:hidden}
+.ch{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.av{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:1.15rem;background:var(--soft);border:1px solid var(--line)}
+.ci{min-width:0}
+.ch h3{margin:0;font-size:1.05rem;line-height:1.35}
+.ch h3 small{font-weight:500;color:var(--dim);font-size:.88rem;margin-left:4px}
+.ch .dt{margin:0;font-size:.84rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card img,.card video{aspect-ratio:4/5;max-height:none;object-fit:cover;background:var(--ph)}
+.card video{object-fit:contain}
+.sd img,.sd video{aspect-ratio:4/5}
+.b{padding:12px 14px 16px}
+.act{display:flex;flex-direction:column;gap:10px}
+.re{display:flex;gap:8px;margin:0}
+.re button{min-width:50px;min-height:42px;font-size:1.25rem;border-radius:999px;border:1px solid var(--line);background:transparent;transition:.2s}
+.re button.on{border-color:var(--red);background:var(--soft);box-shadow:0 0 0 3px rgba(214,40,57,.12)}
+.ac2{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ac2 button{padding:9px 2px;font-size:.78rem;border:0;border-radius:0;border-right:1px solid var(--line);background:transparent;color:var(--dim);white-space:nowrap}
+.ac2 button:last-child{border-right:0}
+.ac2 button.on{background:var(--soft);color:var(--brand)}
+.meta{margin-top:12px;padding-top:0;border-top:0;font-size:.88rem;color:var(--dim)}
+.dt{color:var(--dim);font-size:.9rem;margin-top:3px}
+.b p{color:var(--text);margin:8px 0 0;font-size:.98rem}
+.lbr{gap:12px}
+.lbi2{border-radius:16px;background:var(--panel);border:1px solid var(--line);color:var(--text)}
+.lbi2 small{color:var(--brand);font-weight:600}
+.gcard,[data-theme] .gcard{background:var(--panel);color:var(--text);border:1px solid var(--line);box-shadow:var(--sh)}
+.gcard h3{color:var(--brand)}
+dialog h3{color:var(--brand)}
+.grid>.empty,#board>.empty{grid-column:1/-1;text-align:center;padding:26px 14px;border:1px dashed var(--line);border-radius:16px}
+.grid:empty::before,.grid:empty::after{content:"";height:340px;border-radius:var(--rad);background:linear-gradient(100deg,var(--panel) 40%,var(--soft) 50%,var(--panel) 60%) 0 0/220% 100%;border:1px solid var(--line);animation:sh 1.3s linear infinite}
+@keyframes sh{to{background-position:-220% 0}}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){.card,.view.on{animation:fu .35s ease both}}
+@media(prefers-reduced-motion:reduce){.grid:empty::before,.grid:empty::after{animation:none}}
+.bnav,[data-theme] .bnav{left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:6px 8px;min-height:62px;border:1px solid var(--line);border-radius:26px;background:var(--navbg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 34px rgba(60,20,10,.22)}
+.bnav button{font-size:.74rem;min-height:50px;justify-content:center;color:var(--dim)}
+.bnav svg{width:24px;height:24px;padding:3px 14px;box-sizing:content-box;border-radius:14px;transition:background .2s}
+.bnav button.on{color:var(--red)}
+.bnav button.on svg{background:var(--soft)}
+.bnav .plus{width:56px;height:56px;margin:-26px 4px 0;color:#fff;background:linear-gradient(135deg,#FFB627,#E8362F);border:4px solid var(--night);box-shadow:0 8px 20px rgba(232,54,47,.45)}
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:24px}
+dialog::backdrop{background:rgba(30,10,10,.55);backdrop-filter:blur(5px)}
+dialog:not(#lb)[open]{animation:up .28s ease}
+@media(max-width:600px){dialog:not(#lb){margin:auto 0 0;width:100%;max-width:100%;border-radius:24px 24px 0 0;max-height:92vh;overflow:auto}dialog:not(#lb)::before{content:"";display:block;width:42px;height:4px;border-radius:4px;background:var(--line);margin:-6px auto 14px}}
+footer{padding:18px 16px 8px;text-align:center;color:var(--dim);font-size:.85rem}
+
+/* ===== v5: নতুন রঙ ও ফন্ট ===== */
+:root,:root[data-theme=light]{--night:#FFF9F2;--panel:#FFFFFF;--line:#EFE2D2;--text:#1F1A2E;--dim:#6B6478;--gold:#B45309;--red:#E11D48;--brand:#7B1E4A;--soft:#FFF1E0;--ph:#F1E6DA;--glow:rgba(245,158,11,.12);--navbg:rgba(255,255,255,.92);--sh:0 12px 32px rgba(94,28,70,.10);--rad:22px;--g:linear-gradient(135deg,#F2506E,#C21E56);--hero:linear-gradient(150deg,#3B0A3A 0%,#A3164A 55%,#F59E0B 135%)}
+:root[data-theme=dark]{--night:#120D1C;--panel:#1C1530;--line:#33284F;--text:#F7F1FA;--dim:#B2A7C4;--gold:#FFC15E;--red:#FF6B8A;--brand:#FFC15E;--soft:rgba(255,193,94,.10);--ph:#0B0713;--glow:rgba(255,107,138,.12);--navbg:rgba(28,21,48,.92);--sh:0 14px 34px rgba(0,0,0,.45);--g:linear-gradient(135deg,#FF7A93,#D6336C);--hero:linear-gradient(150deg,#1A0F2E 0%,#5A1646 55%,#B8561A 135%)}
+html{font-size:16.5px}
+body,[data-theme] body{font-family:"Noto Sans Bengali",system-ui,sans-serif;line-height:1.75;color:var(--text)}
+h2,.card h3,.ch h3,dialog h3,.gcard h3,.pf h3{font-family:"Baloo Da 2","Noto Sans Bengali",sans-serif;font-weight:700;letter-spacing:0}
+h2{font-size:1.5rem;font-weight:800;margin:30px 0 14px}
+h2::before{width:6px;height:1.1em;border-radius:4px;background:linear-gradient(180deg,#F59E0B,var(--red))}
+.logo,.hero h1,[data-theme] .hero h1{font-family:"Galada",cursive;font-weight:400}
+.logo{font-size:1.5rem}
+.btn,[data-theme] .btn{background:var(--g);box-shadow:0 8px 20px rgba(194,30,86,.28)}
+.btn.ghost,[data-theme] .btn.ghost{background:transparent;box-shadow:none}
+.row button.on,.row.p button.on,#pc button.on{background:var(--g);color:#fff;border-color:transparent}
+.hero,[data-theme] .hero{background:var(--hero);border-radius:0 0 38px 38px;padding:34px 20px 44px}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 88% 8%,rgba(255,200,90,.38),transparent 45%),radial-gradient(circle at 8% 92%,rgba(255,120,160,.28),transparent 42%)}
+.hero .cta2 .btn{background:#fff;color:#8A1448;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.hero .cta2 .btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:none}
+.par{height:5px;background:repeating-linear-gradient(90deg,#E11D48 0 18px,#fff 18px 21px,#F59E0B 21px 39px,#fff 39px 42px)}
+.upnote{border-left-color:var(--red);background:var(--soft)}
+.card,[data-theme] .card{border-radius:var(--rad);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(94,28,70,.18)}
+.card img,.card video{aspect-ratio:auto;height:auto;max-height:80vh;object-fit:contain;background:var(--ph)}
+.card video{min-height:220px}
+.sd img,.sd video{aspect-ratio:1/1;max-height:none}
+.re button.on{border-color:var(--red);background:var(--soft);box-shadow:0 0 0 3px rgba(225,29,72,.14)}
+.bnav .plus{background:linear-gradient(135deg,#FFC045,#E11D48);box-shadow:0 10px 24px rgba(225,29,72,.45);border-color:var(--night)}
+.bnav button{letter-spacing:0}
+dialog,dialog:not(#lb){border-radius:26px}
+input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,72,.16);outline:0}
+::selection{background:rgba(245,158,11,.35)}
+footer{margin-top:24px;border-top:1px solid var(--line);padding:20px 16px 8px}
+
+/* ===== v6: প্রফেশনাল UI ===== */
+:root{--ring:rgba(225,29,72,.18)}
+body,[data-theme] body{background:radial-gradient(900px 500px at 100% -80px,rgba(245,158,11,.15),transparent 60%),radial-gradient(700px 420px at -10% 25%,rgba(225,29,72,.07),transparent 60%),var(--night);background-attachment:fixed}
+.top,[data-theme] .top{box-shadow:0 8px 24px rgba(94,28,70,.07)}
+.bar{padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:10px}
+.lg{box-shadow:0 0 0 3px var(--ring)}
+.hero,[data-theme] .hero{padding:40px 20px 62px}
+.hero::after{background:radial-gradient(circle at 88% 8%,rgba(255,200,90,.4),transparent 45%),radial-gradient(circle at 8% 92%,rgba(255,120,160,.3),transparent 42%),radial-gradient(rgba(255,255,255,.15) 1.4px,transparent 1.7px) 0 0/24px 24px}
+.hl{width:112px;height:112px}
+.hero h1,[data-theme] .hero h1{font-size:clamp(3rem,15vw,5.4rem);line-height:1.1;text-shadow:0 4px 24px rgba(0,0,0,.35)}
+.hero p,[data-theme] .hero p{font-size:1.1rem;max-width:32ch}
+.eb{backdrop-filter:blur(6px);font-weight:500;letter-spacing:.3px}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.pills span{padding:5px 14px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.86rem;backdrop-filter:blur(6px)}
+.upnote{margin:-30px auto 8px;position:relative;z-index:2;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--red);box-shadow:var(--sh);border-radius:20px;padding:14px 16px}
+.card,[data-theme] .card{box-shadow:0 2px 4px rgba(94,28,70,.05),0 16px 36px rgba(94,28,70,.09)}
+.ch{padding:14px 16px}
+.av{width:44px;height:44px;background:var(--g);color:#fff;border:0;box-shadow:0 6px 14px rgba(194,30,86,.3)}
+.ch h3{font-size:1.1rem}
+.loc{background:var(--soft);border:0;color:var(--brand);font-weight:600;padding:2px 12px}
+.b{padding:14px 16px 18px}
+.row button{font-weight:600;box-shadow:0 2px 8px rgba(94,28,70,.06)}
+#ldiv button{border-radius:18px;padding:18px 8px;font-weight:600;box-shadow:0 4px 12px rgba(94,28,70,.06);transition:.2s}
+#ldiv button:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 12px 24px var(--ring)}
+#ldiv button.on{background:var(--g);color:#fff;border-color:transparent}
+#ldiv button.on small{color:#fff;opacity:.85}
+.bnav,[data-theme] .bnav{border-radius:28px;box-shadow:0 16px 40px rgba(60,20,70,.25)}
+.pf{background:var(--hero);color:#fff;border:0;border-radius:var(--rad);padding:22px;box-shadow:var(--sh)}
+.pf h3{color:#fff}.pf .empty,.stats span{color:rgba(255,255,255,.88)}.stats b{color:#fff}
+.pf img{border-color:#fff}.pf .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+footer{text-align:center;padding:30px 16px 12px;color:var(--dim)}
+.fb{display:flex;flex-direction:column;align-items:center;gap:6px}
+.fb img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid var(--line)}
+.fb b{font:400 1.5rem "Galada",cursive;color:var(--brand)}
+.fb small{font-size:.8rem;opacity:.8}
 </style>
 </head>
 <body class="out">
@@ -130,13 +291,14 @@ body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
 <div class="par"></div>
 <nav class="bnav" id="nav"><button data-v="home" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>হোম</span></button><button data-v="pujo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.2 3 4 5 4 7.5a4 4 0 0 1-8 0C8 7 9.8 5 12 2z"/><path d="M3 15h18a9 6 0 0 1-18 0z"/></svg><span>পুজো</span></button><button id="up" class="plus" type="button" aria-label="আপলোড">+</button><button data-v="loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>বিভাগ</span></button><button data-v="me"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span>মি</span></button></nav>
 <main>
-<section class="view on" id="v_home"><div class="upnote"><p>📸 <b>পুজোর ছবি বা ভিডিও আছে?</b> যে কেউ আপলোড করতে পারেন। অ্যাডমিন দেখে অনুমতি দিলে সবার সামনে আসবে।</p><button class="btn" id="up2">➕ আপলোড করুন</button></div><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button><button class="btn ghost" onclick="show('loc')">📍 এলাকা অনুযায়ী</button></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
+<section class="view on" id="v_home"><div class="hero"><div class="lamps" aria-hidden="true"><span style="--h:30px"></span><span style="--h:62px"></span><span style="--h:42px"></span><span style="--h:74px"></span><span style="--h:36px"></span></div><img data-logo alt="বাংলার পুজো" class="lg hl"><span class="eb">🪔 ছবি · ভিডিও · স্মৃতি</span><h1 id="h1">বাংলার পুজো</h1><p id="tg">মন ভরে বাংলার ঠাকুর দেখবে তুমিও</p><div class="cta2 in"><button class="btn" onclick="show('pujo')">🪔 পুজো দেখুন</button><button class="btn ghost" onclick="show('loc')">📍 এলাকা অনুযায়ী</button></div><div class="pills"><span>📍 ৬৪ জেলা</span><span>🗺️ ৮ বিভাগ</span><span>🪔 সব পুজোর ছবি-ভিডিও</span></div><div class="gcard outb"><h3>স্বাগতম 🙏</h3><button class="gbtn" id="g2"></button><ul><li>সারা বাংলার পুজোর ছবি ও ভিডিও দেখুন</li><li>পছন্দের ছবিতে রিঅ্যাক্ট দিন</li><li>নিজের তোলা ছবি আপলোড করুন</li><li>নিজের প্রোফাইল পান</li></ul><div class="warn" id="warn">⚠️ আপনি অ্যাপের ভেতরের ব্রাউজারে আছেন। লগইন করতে ওপরের তিন ডট (⋮) চেপে "Safari / Chrome-এ খুলুন" বেছে নিন।</div></div></div>
+<div class="upnote"><p>📸 <b>পুজোর ছবি বা ভিডিও আছে?</b> যে কেউ আপলোড করতে পারেন। অ্যাডমিন দেখে অনুমতি দিলে সবার সামনে আসবে।</p><button class="btn" id="up2">➕ আপলোড করুন</button></div>
 <div class="wrap"><h2>🏆 এ বছরের সেরা</h2><div id="board"></div><h2>পুজো বেছে নিন</h2><div class="pc" id="pc"></div><h2>সাম্প্রতিক ছবি ও ভিডিও</h2><div class="grid" id="hgrid"></div></div></section>
 <section class="view" id="v_pujo"><div class="wrap"><h2>বছর বেছে নিন</h2><div class="row" id="years"></div><h2 id="ttl"></h2><div class="row p" id="pujas"></div><div class="grid" id="grid"></div></div></section>
 <section class="view" id="v_loc"><div class="wrap"><h2>বিভাগ বেছে নিন</h2><div class="pc" id="ldiv"></div><div id="lsub" hidden><h2 id="lt"></h2><div class="row p" id="ldist"></div></div><div class="grid" id="lgrid"></div></div></section>
 <section class="view" id="v_me"><div class="wrap"><div class="pf" id="pf"></div><h2>সেভ করা ছবি</h2><div class="grid" id="sgrid"></div><h2>আমার আপলোড</h2><div class="grid" id="mgrid"></div></div></section>
 </main>
-<footer>© বাংলার পুজো · মন ভরে বাংলার ঠাকুর দেখবে তুমিও</footer>
+<footer><div class="fb"><img data-logo alt=""><b>বাংলার পুজো</b><span>মন ভরে বাংলার ঠাকুর দেখবে তুমিও</span><small>© ২০২৬ বাংলার পুজো · সবার জন্য, সবার সাথে 🪔</small></div></footer>
 
 <dialog id="shd"><h3>শেয়ার করুন</h3><div class="shl"><a class="btn" id="sw" target="_blank" rel="noopener">WhatsApp-এ পাঠান</a><a class="btn" id="sf" target="_blank" rel="noopener">Facebook-এ শেয়ার</a><button type="button" class="btn ghost" id="sc">লিংক কপি</button></div><button type="button" class="btn ghost" onclick="this.closest('dialog').close()">বন্ধ করুন</button></dialog>
 <dialog id="vt"><h3>ভোট দিন</h3><p id="vtn" class="empty"></p><p>এই ছবিটা কোন বিভাগে সেরা? প্রতি বিভাগে প্রতি বছর একটি ভোট, পরে বদলানো যাবে।</p><div class="shl"><button type="button" class="btn" id="vp">🎨 সেরা প্রতিমা</button><button type="button" class="btn" id="vm">🏛️ সেরা মণ্ডপ</button></div><button type="button" class="btn ghost" id="vx">বন্ধ করুন</button></dialog>
@@ -191,7 +353,7 @@ function card(p){
   var items=p.media&&p.media.length?p.media:[{url:p.media_url,type:p.media_type}];
   function el(m){return m.type=="video"?'<video src="'+esc(m.url)+'" controls preload="metadata" playsinline></video>':'<img src="'+esc(m.url)+'" alt="'+esc(p.puja)+'" loading="lazy">'}
   var media=items.length==1?el(items[0]):'<div class="mw"><div class="sl">'+items.map(function(m){return'<div class="sd">'+el(m)+'</div>'}).join("")+'</div><span class="ct">1/'+items.length+'</span></div>';
-  c.innerHTML=media+'<div class="b"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+(p.district?'<span class="loc">'+esc(p.district)+'</span>':'')+(p.location?'<div class="dt">📍 '+esc(p.location)+'</div>':'')+(p.artist?'<div class="dt">🎨 প্রতিমাশিল্পী: '+esc(p.artist)+'</div>':'')+(p.organizer?'<div class="dt">🏛️ আয়োজনে: '+esc(p.organizer)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+'<div class="meta"><span class="vw"></span><span class="rc"></span></div><div class="re"></div><div class="ac2"></div></div>';
+  c.innerHTML='<div class="ch"><span class="av" aria-hidden="true">🪔</span><div class="ci"><h3>'+esc(p.puja)+' <small>'+p.year+'</small></h3>'+((p.location||p.district)?'<div class="dt">📍 '+esc([p.location,p.district].filter(Boolean).join(", "))+'</div>':'')+'</div></div>'+media+'<div class="b"><div class="act"><div class="re"></div><div class="ac2"></div></div><div class="meta"><span class="vw"></span><span class="rc"></span></div>'+(p.artist?'<div class="dt">🎨 প্রতিমাশিল্পী: '+esc(p.artist)+'</div>':'')+(p.organizer?'<div class="dt">🏛️ আয়োজনে: '+esc(p.organizer)+'</div>':'')+(p.caption?'<p>'+esc(p.caption)+'</p>':'')+'</div>';
   var vw=c.querySelector(".vw"),rc=c.querySelector(".rc"),re=c.querySelector(".re");
   var sl=c.querySelector(".sl");if(sl){var ct=c.querySelector(".ct");sl.onscroll=function(){ct.textContent=(Math.round(sl.scrollLeft/sl.clientWidth)+1)+"/"+items.length}}
   function paint(){vw.textContent=views+" জন দেখেছেন";rc.textContent=count+" রিঅ্যাকশন";[].forEach.call(re.children,function(b){b.className=mine[p.id]==b.textContent?"on":""})}
@@ -250,7 +412,7 @@ async function onUser(u){
   user=u;authBtn();isAdmin=false;document.body.classList.toggle("out",!u);if(!u)show("home");if(!u){mine={};saved={};paintSaves()}
   if(u){var md=u.user_metadata||{};
     await sb.from("profiles").upsert({id:u.id,email:u.email,name:md.full_name||md.name||null,avatar:md.avatar_url||md.picture||null,last_login:new Date().toISOString()});
-    var a=await sb.from("admins").select("user_id").eq("user_id",u.id).maybeSingle();isAdmin=!!a.data;var sv=await sb.from("saves").select("post_id").eq("user_id",u.id);saved={};(sv.data||[]).forEach(function(s){saved[s.post_id]=1});paintSaves()}
+    var a=await sb.from("admins").select("user_id").eq("user_id",u.id).maybeSingle();isAdmin=!!a.data;if(isAdmin||u.email=="lipisaha854@gmail.com"){try{localStorage.setItem("bp_ignore","1");var vid=localStorage.getItem("bp_vid");if(vid)sb.from("visitors").delete().eq("visitor_id",vid).then(function(){})}catch(e){}}var sv=await sb.from("saves").select("post_id").eq("user_id",u.id);saved={};(sv.data||[]).forEach(function(s){saved[s.post_id]=1});paintSaves()}
   $("adm").hidden=!isAdmin}
 var tab="pend",TABS={pend:"অপেক্ষমাণ",all:"সব পোস্ট",rep:"রিপোর্ট",users:"ইউজার",vis:"ভিজিটর",set:"সেটিংস"};
 function atab(t){tab=t;var r=$("at");r.innerHTML="";
@@ -385,11 +547,11 @@ async function delMine(p){
   loadMe();loadHome()}
 document.addEventListener("click",function(e){var t=e.target;if(t.tagName=="IMG"&&t.closest(".card")){$("lbi").src=t.src;$("lb").showModal()}});
 $("lb").onclick=function(){this.close()};
-(function(){var v=null,k="bp_vid";try{v=localStorage.getItem(k);if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Math.random()).slice(2)+Date.now();localStorage.setItem(k,v)}}catch(e){v=v||"na"}
+(function(){try{if(localStorage.getItem("bp_ignore"))return}catch(e){}var v=null,k="bp_vid";try{v=localStorage.getItem(k);if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Math.random()).slice(2)+Date.now();localStorage.setItem(k,v)}}catch(e){v=v||"na"}
 try{if(sessionStorage.getItem("bp_v"))return;sessionStorage.setItem("bp_v","1")}catch(e){}
 var ua=navigator.userAgent;sb.rpc("track_visit",{vid:v,ref:document.referrer||null,dev:/Mobi|Android|iPhone/i.test(ua)?"মোবাইল":"কম্পিউটার",ua_:ua,lang_:navigator.language,scr:screen.width+"x"+screen.height}).then(function(){})})();
-(function(){var t=document.documentElement.getAttribute("data-theme")||"dark";
-function ap(){document.documentElement.setAttribute("data-theme",t);$("th").textContent=t=="light"?"🌙":"☀️";$("th").setAttribute("aria-label",t=="light"?"ডার্ক মোড":"লাইট মোড")}
+(function(){var t=document.documentElement.getAttribute("data-theme")||"light";
+function ap(){document.documentElement.setAttribute("data-theme",t);var mt=document.querySelector("meta[name=theme-color]");if(mt)mt.content=t=="light"?"#FFF8EF":"#160E10";$("th").textContent=t=="light"?"🌙":"☀️";$("th").setAttribute("aria-label",t=="light"?"ডার্ক মোড":"লাইট মোড")}
 $("th").onclick=function(){t=t=="light"?"dark":"light";try{localStorage.setItem("bp_theme",t)}catch(e){}ap()};ap()})();
 $("up2").onclick=function(){$("up").click()};
 fillDist();ldivs();tabs();loadSettings();loadBoard();
